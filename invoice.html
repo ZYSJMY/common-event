@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>新学说-发票申请</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/clientWrite.css">
+    <style>
+        #cover {
+            position: fixed;
+            left: 0px;
+            top: 0px;
+            background: rgba(0, 0, 0, 0.6);
+            width: 100%;
+            height: 100%;
+            filter: alpha(opacity=60);
+            opacity: 0.6;
+            display: none;
+            z-Index: 999;
+        }
+        
+        #modal {
+            position: fixed;
+            width: 350px;
+            height: 60px;
+            top: 33%;
+            left: 50%;
+            border-radius: 6px;
+            transform: translateX(-50%);
+            display: none;
+            cursor: pointer;
+            z-Index: 9999;
+            padding: 10px;
+            text-align: center;
+            line-height: 40px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="content container">
+            <div id="body"></div>
+            <div id="cover"></div>
+            <div id="modal" class="alert-success">
+                <strong>提交成功！</strong> 两个工作日内将会发到您的邮箱
+            </div>
+            <div class="activeTitle">
+                <div class="top">
+                    <span class="iconfont icon-huodong1 activeTitle_logo"></span>
+                    <span class="activeTitle_desc">新学说-发票申请</span>
+                </div>
+                <div class="row activityPic" id="activityPic"></div>
+            </div>
+            <form action="" id="content">
+                <div class="form-group">
+                </div>
+                <div class="form-group">
+                    <div class="row">
+                        <label class="Title col-md-12 control-label">1.订单编号</label>
+                        <div class="col-md-12">
+                            <input type="text" name="orderNo" class="form-control" placeholder="" disabled="disabled">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="row">
+                        <label class="Title col-md-12 control-label">2.实付金额</label>
+                        <div class="col-md-12">
+                            <input type="text" name="totalPrice" class="form-control" placeholder="" disabled="disabled">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="row">
+                        <label class="Title col-md-12 control-label">3.发票抬头</label>
+                        <div class="col-md-12">
+                            <input type="text" name="userinvoicename" class="form-control" placeholder="请输入发票抬头">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="row">
+                        <label class="Title col-md-12 control-label">4.企业税号</label>
+                        <div class="col-md-12">
+                            <input type="text" name="userinvoicenum" class="form-control" placeholder="请输入企业税号">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="row">
+                        <label class="Title col-md-12 control-label">5.姓名</label>
+                        <div class="col-md-12">
+                            <input type="text" name="user" class="form-control" placeholder="请输入姓名">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="row">
+                        <label class="Title col-md-12 control-label">6.接收邮箱</label>
+                        <div class="col-md-12">
+                            <input type="text" name="userMail" class="form-control" placeholder="请输入邮箱">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="row">
+                        <label class="Title col-md-12 control-label">7.发票类型</label>
+                        <div class="col-md-12">
+                            <select id="test" class="form-control">
+                                <option>会议费</option>
+                                <option>会议服务费</option>
+                              </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-md-12 text-center">
+                            <input type="button" value="立即提交" id="sub" class="btn  btn-warning btn-block">
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" crossorigin="anonymous"></script>
+<script type="text/javascript" src="js/message.js"></script>
+<script src="./js/config.js"></script>
+<script>
+    $(function() {
+        var height = $(window).height()
+        $(document.body).css("min-height", height)
+    })
+
+    function getQueryString(name) {
+        var reg = new RegExp('(^|&)' + name + '=([^&]*)(&|$)', 'i');
+        var r = window.location.search.substr(1).match(reg);
+        if (r != null) {
+            return decodeURI(r[2]);
+        }
+        return null;
+    }
+    var orderNo = (getQueryString("orderNo"));
+    var totalPrice = (getQueryString("totalPrice"));
+    var phone = (getQueryString("phone"));
+    $("input[name=orderNo]").val(orderNo)
+    $("input[name=totalPrice]").val(totalPrice)
+    $("#sub").click(function() {
+        cover.style.display = "block"; //显示遮罩层
+        modal.style.display = "block"; //显示弹出层
+        // var orderNo = $("input[name=orderNo]").val()
+        // var totalPrice = $("input[name=totalPrice]").val()
+        //     //邮箱
+        // var reg = new RegExp("^[a-z0-9]+([._\\-]*[a-z0-9])*@([a-z0-9]+[-a-z0-9]*[a-z0-9]+.){1,63}[a-z0-9]+$");
+        // if ($("input[name=userinvoicename]").val() == "") {
+        //     $.message({
+        //         message: "发票抬头不能为空！",
+        //         type: 'warning',
+        //         duration: 2000,
+        //         showClose: false,
+        //         center: false,
+        //     });
+        //     return false;
+        // } else {
+        //     var userinvoicename = $("input[name=userinvoicename]").val()
+        // }
+        // if ($("input[name=userinvoicenum]").val() == "") {
+        //     $.message({
+        //         message: "企业税号不能为空！",
+        //         type: 'warning',
+        //         duration: 2000,
+        //         showClose: false,
+        //         center: false,
+        //     });
+        //     return false;
+        // } else {
+        //     var userinvoicenum = $("input[name=userinvoicenum]").val()
+        // }
+        // if ($("input[name=user]").val() == "") {
+        //     $.message({
+        //         message: "姓名不能为空！",
+        //         type: 'warning',
+        //         duration: 2000,
+        //         showClose: false,
+        //         center: false,
+        //     });
+        //     return false;
+        // } else {
+        //     var user = $("input[name=user]").val()
+        // }
+        // if ($("input[name=userMail]").val() == "") {
+        //     $.message({
+        //         message: "邮箱不能为空！",
+        //         type: 'warning',
+        //         duration: 2000,
+        //         showClose: false,
+        //         center: false,
+        //     });
+        //     return false;
+        // } else if (!reg.test($("input[name=userMail]").val())) {
+        //     $.message({
+        //         message: "邮箱格式不正确，请正确输入!",
+        //         type: 'warning',
+        //         duration: 2000,
+        //         showClose: false,
+        //         center: false,
+        //     });
+        //     return false;
+        // } else {
+        //     var userMailval = $("input[name=userMail]").val()
+        // }
+        // //下拉框
+        // var options = $("#test option:selected");
+        // var optionsval = options.val()
+        // var Data = "userinvoicename=" + userinvoicename + "&userinvoicenum=" + userinvoicenum + "&userbillingtype=" + optionsval + "&usermail=" + userMailval + "&username=" + user + "&userordernum=" + orderNo + "&managemoney=" + totalPrice
+        // $.ajax({
+        //     type: "post",
+        //     data: Data,
+        //     async: true,
+        //     dataType: "json",
+        //     url: changeUrl.address + '/Invoice/EventInvoiceCreate.do',
+        //     success: function(data) {
+        //         console.log(data)
+        //         if (data.code == 0) {
+        //             cover.style.display = "block"; //显示遮罩层
+        //             modal.style.display = "block"; //显示弹出层
+        //             setTimeout(function() {
+        //                 window.location.href = changeUrl.Catalog +"/common-event/personal.html?phone=" + phone
+        //             }, 3000);
+        //         }
+        //     },
+        // })
+    })
+</script>

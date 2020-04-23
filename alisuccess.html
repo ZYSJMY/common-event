@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>新学说-第五届VIS国际学校发展大会</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" crossorigin="anonymous">
+    <style>
+        body {
+            background-image: -webkit-linear-gradient(to bottom, #f7e8df, #c8edf9);
+            background-image: linear-gradient(to bottom, #f7e8df, #c8edf9);
+            background-repeat: no-repeat;
+        }
+        
+        .container-fluid {
+            padding-right: 0;
+            padding-left: 0;
+        }
+        
+        .content {
+            overflow: hidden;
+        }
+        
+        .jumbotron {
+            margin: 100px auto;
+            background-color: #fff;
+        }
+        
+        @media (min-width: 760px) {
+            .container-fluid {
+                padding-right: 15px;
+                padding-left: 15px;
+            }
+            .content {
+                width: 800px;
+            }
+            .container {
+                padding: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="content container">
+            <div class="jumbotron">
+                <h1>支付成功</h1>
+                <p class="p_one"></p>
+                <p class="p_href"><a class="btn btn-primary btn-lg" href="#" role="button">立即跳转</a></p>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" crossorigin="anonymous "></script>
+<script src="js/config.js"></script>
+<script>
+    // body高度
+    $(function() {
+        var height = $(window).height()
+        $(document.body).css("min-height", height)
+    })
+
+    function getQueryString(name) {
+        var reg = new RegExp('(^|&)' + name + '=([^&]*)(&|$)', 'i');
+        var r = window.location.search.substr(1).match(reg);
+        if (r != null) {
+            return decodeURI(r[2]);
+        }
+        return null;
+    }
+    var phone = (getQueryString("phone"));
+    $.ajax({
+        type: "get",
+        data: {
+            telphone: phone
+        },
+        url: changeUrl.address + "/CommonApi/send_pay_message.do",
+        success: function(data) {
+            console.log(data)
+        }
+    })
+
+    // 倒计时
+    var waitTime = 2;
+    loop(waitTime)
+
+    function loop(ele) {
+        if (waitTime == 0) {
+            ele.disabled = false;
+            window.location.href = changeUrl.Catalog + "/common-event/personal.html?phone=" + phone
+        } else {
+            ele.disabled = true;
+            $(".jumbotron .p_one").html("请稍等，" + waitTime + " 秒后跳转到个人中心......")
+            waitTime--;
+            t2 = setTimeout(function() {
+                loop(ele) // 关键处-定时循环调用
+            }, 1000)
+        }
+    }
+    $(".p_href").click(function() {
+        window.location.href = changeUrl.Catalog + "/common-event/personal.html?phone=" + phone
+    })
+</script>

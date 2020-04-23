@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>新学说支付中心</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/purchase.css">
+    <link rel="stylesheet" href="css/loading.css">
+    <style type="text/css">
+        .RadioStyle input:checked+label {
+            background: url(images/ico_checkon.svg) no-repeat right bottom;
+            border: 2px solid #e03340;
+            line-height: 46px;
+            background-size: 21px 21px;
+            color: #e03340;
+            background-color: #fff;
+        }
+        
+        .RadioStyle input:disabled+label {
+            opacity: 0.7;
+            border: 1px solid rgb(221, 217, 217);
+            background-color: #eee;
+        }
+        
+        .icon {
+            display: inline-block;
+            width: 40%;
+            height: 35px;
+            background: url(./images/weixin.svg) no-repeat left;
+            background-size: 50px 37px;
+            vertical-align: middle;
+            margin-top: -6px;
+        }
+        
+        .icon1 {
+            display: inline-block;
+            width: 40%;
+            height: 35px;
+            background: url(./images/zfb.svg) no-repeat left;
+            background-size: 40px 36px;
+            vertical-align: middle;
+            margin-top: -6px;
+        }
+        
+        .icon2 {
+            display: inline-block;
+            width: 20%;
+            height: 35px;
+            background: url(./images/4.svg) no-repeat left;
+            background-size: 41px 26px;
+            vertical-align: top;
+        }
+        
+        .icon3 {
+            display: inline-block;
+            width: 20%;
+            height: 35px;
+            background: url(./images/close.svg) no-repeat right;
+            background-size: 24px 18px;
+            vertical-align: middle;
+            margin-top: 0;
+            opacity: 1;
+        }
+        
+        .loading {
+            background: #00000040 url(images/loadingMask.gif) no-repeat center 50%;
+            z-index: 9999;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="content container  RadioStyle">
+            <div class="activeTitle">
+                <div class="top">
+                    <span class="iconfont icon-huodong1 activeTitle_logo"></span>
+                    <span class="activeTitle_desc">新学说-支付中心</span>
+                </div>
+                <div class="row activityPic" id="activityPic"></div>
+            </div>
+            <div class="alert alert-warning col-xs-12 col-md-12" role="alert">
+                <p class="guibing"></p>
+                <hr>
+                <p class="zunxiang"></p>
+            </div>
+            <div class="row Block">
+                <!-- 微信二维码 -->
+                <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" style="width: 260px">
+                        <div class="modal-content" style="top:100px;border-radius: 14px;">
+                            <div class=" modal-header " style="background-color:#5cb85c;border-radius: 12px 12px 0 0">
+                                <h4 class="modal-title " id="myModalLabel">
+                                    <span class="icon2"></span>
+                                    <span style="font-size: 16px;line-height: 35px;font-weight:bold; color: #fff;">微信支付</span>
+                                    <span class="icon3 close" data-dismiss="modal" aria-hidden="true"></span>
+                                </h4>
+                            </div>
+                            <div class="modal-body" style="padding: 0">
+                                <div style="width: 170px ;height: 170px; margin: 34px auto 10px;border: 1px solid #ddd">
+                                    <img id="imagelist" style="width: 160px ;height: 160px; display: block; margin: 6px  auto;" src=" " alt=" ">
+                                </div>
+                            </div>
+                            <div class="modal-footer" style="text-align: center;padding: 0 0 32px;border:none; border-radius: 0 0 12px 12px">
+                                <img style=" width: 170px ;height: auto;margin: 0 auto;display: block; " src="./images/1.png " alt=" ">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <input type="hidden " class="btn-warning ">
+            <input type="hidden " class="btn-success ">
+            <div class="row btn_flex ">
+                <p class="jiner ">总计：<span class="yuan yuan_xuan "></span></p>
+                <div class="btn_r ">
+                    <button class="col-xs-6 col-md-6 wechatpayment btn btn-success btn-sm ">
+                                <span class="icon "></span>
+                                <span style="font-size: 14px;line-height: 35px;padding: 0 10px 0 0;font-weight:bold;">微信支付</span>
+                        </button>
+                    <button class="col-xs-6 col-md-6 alipayment btn btn-primary btn-sm ">
+                            <span class="icon1 "></span>
+                            <span style="font-size: 14px;line-height: 35px;padding: 0 10px 0 0;font-weight:bold; ">支付宝</span>
+                        </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" crossorigin="anonymous "></script>
+<script type="text/javascript " src="js/message.js"></script>
+<script src="js/config.js"></script>
+<script src="js/pay.js"></script>
+<script src="js/loading.js"></script>
+<script src="js/purchase.js"></script>

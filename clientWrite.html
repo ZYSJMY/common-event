@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title></title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/clientWrite.css">
+
+</head>
+
+<body>
+
+    <div class="container-fluid">
+        <div class="content container">
+            <div class="activeTitle">
+                <div class="top">
+                    <span class="iconfont icon-huodong1 activeTitle_logo"></span>
+                    <span class="activeTitle_desc"></span>
+                </div>
+                <div class="row activityPic" id="activityPic"></div>
+            </div>
+            <form action="" id="content">
+                <div class="form-group">
+                    <div class="row">
+                        <h3 class="col-md-12 text-center" id="activityTitle"></h3>
+                        <h3 class="col-md-12  text-center mt0"><small id="activityDescription"></small></h3>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="row">
+                        <label class="Title col-md-12 control-label name"><span class="text-muted"></span></label>
+                        <div class="col-md-12">
+                            <input type="text" name="name" class="form-control" placeholder="请输入名字">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="row">
+                        <label class="Title col-md-12 control-label company"><span class="text-muted"></span></label>
+                        <div class="col-md-12">
+                            <input type="text" name="company" class="form-control" placeholder="请输入公司/学校">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="row">
+                        <label class="Title col-md-12 control-label position"><span class="text-muted"></span></label>
+                        <div class="col-md-12">
+                            <input type="text" name="position" class="form-control" placeholder="请输入职位">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="row">
+                        <label class="Title col-md-12 control-label userMail"><span class="text-muted"></span></label>
+                        <div class="col-md-12">
+                            <input type="text" name="userMail" class="form-control" placeholder="请输入邮箱">
+                        </div>
+                    </div>
+                </div>
+                <div class="option1">
+                    <!-- 表单 -->
+                    <div class="form-group form_input">
+                        <div class="row">
+                            <label class="Title col-md-12 control-label option"><span class="text-muted"></span></label>
+                            <div class="col-md-12">
+                                <input type="text" name="option" class="form-control" placeholder="请输入意见">
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 单选 -->
+                    <div class="form-group radio_Show">
+                        <div class="row">
+                            <label class="Title col-md-12 control-label radio_title"><span class="text-muted"></span></label>
+                            <div class="col-md-12 radio_List">
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 多选 -->
+                    <div class="form-group checkbox_Show">
+                        <div class="row checkbox_List">
+                            <label class="Title col-md-12 control-label checkbox_title"><span class="text-muted"></span></label>
+                        </div>
+                    </div>
+                    <!-- 下拉 -->
+                    <div class="form-group select_Show">
+                        <div class="row">
+                            <label class="Title col-md-12 control-label select_title"><span class="text-muted"></span></label>
+                            <div class="col-md-12">
+                                <select id="test" class="form-control">
+                                    
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 不启用 -->
+                    <div class="form-group enabled_Show">
+                    </div>
+                </div>
+                <div class="option2">
+                    <!-- 表单 -->
+                    <div class="form-group form_input">
+                        <div class="row">
+                            <label class="Title col-md-12 control-label option"><span class="text-muted"></span></label>
+                            <div class="col-md-12">
+                                <input type="text" name="option" class="form-control" placeholder="请输入意见">
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 单选 -->
+                    <div class="form-group radio_Show">
+                        <div class="row">
+                            <label class="Title col-md-12 control-label radio_title"><span class="text-muted"></span></label>
+                            <div class="col-md-12 radio_List">
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 多选 -->
+                    <div class="form-group checkbox_Show">
+                        <div class="row checkbox_List">
+                            <label class="Title col-md-12 control-label checkbox_title"><span class="text-muted"></span></label>
+                        </div>
+                    </div>
+                    <!-- 下拉 -->
+                    <div class="form-group select_Show">
+                        <div class="row">
+                            <label class="Title col-md-12 control-label select_title"><span class="text-muted"></span></label>
+                            <div class="col-md-12">
+                                <select id="test" class="form-control">
+                                    
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 不启用 -->
+                    <div class="form-group enabled_Show">
+                    </div>
+                </div>
+                <div class="option3">
+                    <!-- 表单 -->
+                    <div class="form-group form_input">
+                        <div class="row">
+                            <label class="Title col-md-12 control-label option"><span class="text-muted"></span></label>
+                            <div class="col-md-12">
+                                <input type="text" name="option" class="form-control" placeholder="请输入意见">
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 单选 -->
+                    <div class="form-group radio_Show">
+                        <div class="row">
+                            <label class="Title col-md-12 control-label radio_title"><span class="text-muted"></span></label>
+                            <div class="col-md-12 radio_List">
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 多选 -->
+                    <div class="form-group checkbox_Show">
+                        <div class="row checkbox_List">
+                            <label class="Title col-md-12 control-label checkbox_title"><span class="text-muted"></span></label>
+                        </div>
+                    </div>
+                    <!-- 下拉 -->
+                    <div class="form-group select_Show">
+                        <div class="row">
+                            <label class="Title col-md-12 control-label select_title"><span class="text-muted"></span></label>
+                            <div class="col-md-12">
+                                <select id="test" class="form-control">
+                                    
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 不启用 -->
+                    <div class="form-group enabled_Show">
+                    </div>
+                </div>
+                <div class="option4">
+                    <!-- 表单 -->
+                    <div class="form-group form_input">
+                        <div class="row">
+                            <label class="Title col-md-12 control-label option"><span class="text-muted"></span></label>
+                            <div class="col-md-12">
+                                <input type="text" name="option" class="form-control" placeholder="请输入意见">
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 单选 -->
+                    <div class="form-group radio_Show">
+                        <div class="row">
+                            <label class="Title col-md-12 control-label radio_title"><span class="text-muted"></span></label>
+                            <div class="col-md-12 radio_List">
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 多选 -->
+                    <div class="form-group checkbox_Show">
+                        <div class="row checkbox_List">
+                            <label class="Title col-md-12 control-label checkbox_title"><span class="text-muted"></span></label>
+                        </div>
+                    </div>
+                    <!-- 下拉 -->
+                    <div class="form-group select_Show">
+                        <div class="row">
+                            <label class="Title col-md-12 control-label select_title"><span class="text-muted"></span></label>
+                            <div class="col-md-12">
+                                <select id="test" class="form-control">
+                                    
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 不启用 -->
+                    <div class="form-group enabled_Show">
+                    </div>
+                </div>
+                <div class="option5">
+                    <!-- 表单 -->
+                    <div class="form-group form_input">
+                        <div class="row">
+                            <label class="Title col-md-12 control-label option"><span class="text-muted"></span></label>
+                            <div class="col-md-12">
+                                <input type="text" name="option" class="form-control" placeholder="请输入意见">
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 单选 -->
+                    <div class="form-group radio_Show">
+                        <div class="row">
+                            <label class="Title col-md-12 control-label radio_title"><span class="text-muted"></span></label>
+                            <div class="col-md-12 radio_List">
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 多选 -->
+                    <div class="form-group checkbox_Show">
+                        <div class="row checkbox_List">
+                            <label class="Title col-md-12 control-label checkbox_title"><span class="text-muted"></span></label>
+                        </div>
+                    </div>
+                    <!-- 下拉 -->
+                    <div class="form-group select_Show">
+                        <div class="row">
+                            <label class="Title col-md-12 control-label select_title"><span class="text-muted"></span></label>
+                            <div class="col-md-12">
+                                <select id="test" class="form-control">
+                                    
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 不启用 -->
+                    <div class="form-group enabled_Show">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="row">
+                        <label class="Title col-md-12 control-label telphone"><span class="text-muted">（phone）</span></label>
+                        <div class="col-md-12">
+                            <input type="text" name="telphone" maxlength="11" class="form-control" placeholder="请输入手机号码">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="input-group">
+                                <input id="code" type="text" name="code" class="form-control" placeholder="请输入短信验证码">
+                                <span class="input-group-btn">
+                              <button id="Code_btn" class="btn btn-success" maxlength="4" type="button"  disabled="disabled">获取短信验证码</button>
+                            </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-md-12 text-center">
+                            <input type="button" value="立即提交" id="sub" class="btn  btn-warning btn-block">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h5 class="text-right Deadline">报名截止日期: 2019-11-08<span id="Deadline"></span></h5>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" crossorigin="anonymous"></script>
+<script type="text/javascript" src="js/message.js"></script>
+<script src="js/config.js"></script>
+<script src="js/clientWrite.js"></script>
+<script type="text/javascript" src="https://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+<script src="js/wexinShare01.js"></script>

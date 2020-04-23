@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>新学说活动</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/personal.css">
+    <style>
+        #cover {
+            position: absolute;
+            left: 0px;
+            top: 0px;
+            background: rgba(0, 0, 0, 0.6);
+            width: 100%;
+            height: 100%;
+            filter: alpha(opacity=60);
+            opacity: 0.6;
+            display: none;
+            z-Index: 2;
+        }
+        
+        #modal {
+            position: absolute;
+            width: 350px;
+            height: 270px;
+            top: 33%;
+            left: 50%;
+            border-radius: 6px;
+            transform: translateX(-50%);
+            background-color: #fff;
+            display: none;
+            cursor: pointer;
+            z-Index: 3;
+            padding: 20px;
+        }
+        
+        .bottom_btn {
+            margin: 50px 0 20px;
+        }
+        
+        .dingdan {
+            margin-top: 230px;
+            text-align: center;
+            display: none
+        }
+        
+        .text_phone {
+            margin: 10px 0;
+            text-align: center;
+            font-size: 14px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="content container ">
+
+            <div class="top_img">
+                <img src="./images/fh.svg" alt="">
+            </div>
+            <div class="activeTitle">
+                <h3>个人中心</h3>
+            </div>
+            <div class="row main">
+                <h4>我的订单</h4>
+                <div class="main_list">
+                </div>
+                <div id="cover"></div>
+                <div id="modal">
+                    <h4 style="text-align: center;font-weight: 700;">请登录</h4>
+                    <br>
+
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <input type="text" name="tel" maxlength="11" class="form-control" placeholder="请输入购买门票使用的手机号">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="input-group">
+                                    <input type="text" name="code" class="form-control" placeholder="请输入短信验证码">
+                                    <span class="input-group-btn">
+                                  <button id="Code_btn" class="btn btn-success" maxlength="4" type="button">获取短信验证码</button>
+                                </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group bottom_btn">
+                        <div class="row">
+                            <div class="col-md-12 text-center gb">
+                                <input type="button" value="确定" id="sub" class="btn  btn-success btn-block">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <p class="text_phone">
+                <span></span>
+                <a href="#" id="qiehuan" style="text-decoration: underline;margin-right: 10px;"></a>
+                <a href="#" id="shuaxin" style="text-decoration: underline">刷新</a>
+            </p>
+        </div>
+        <div class="dingdan container">
+            <h4>您还没有订单哦</h4>
+            <a style="font-size: 16px;" href="http://data.xinxueshuo.cn/nsi-event/2019Vis-activity/clientWrite.html">立即报名</a>
+        </div>
+
+    </div>
+</body>
+
+</html>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" crossorigin="anonymous "></script>
+<script type="text/javascript" src="js/message.js"></script>
+<script src="js/config.js"></script>
+<script src="js/personal.js"></script>
+<script type="text/javascript" src="https://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+<script src="js/wexinShare01.js"></script>
+<script src="js/loading.js"></script>
+<script>
+    weixinShare('新学说-第五届VIS国际学校发展大会', '时间：2019.11.8-11.10  地点：中国-北京昆泰酒店  认知世界，创新中国', 'https://data.xinxueshuo.cn/upImage/upInstitutionImg/100062/100062-logo.jpg')
+</script>
