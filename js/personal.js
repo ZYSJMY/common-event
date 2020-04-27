@@ -57,7 +57,7 @@ function vis_list(wechatId) {
         },
         url: changeUrl.address + '/event_collect/List_byPhone.do',
         success: function(data) {
-            console.log(data.data)
+            console.log(data.data.list)
             if (data.code == 0) {
                var  data = data.data.list
                 if (data == "") {
@@ -90,11 +90,30 @@ function vis_list(wechatId) {
                             '<button type="button" class="btn btn-primary pull-right">查看电子门票</button>' +
                             '</div>' +
                             '<p class="text-muted piao' + k + '"></p>' +
-                            '<p class="text-muted time"> <span class="time_data' + k + '">时间：'+formatDateTime(new Date(Number(data[k].option2)))+'</span><span class="border-left"></span>'+(data[k].option3 !='0'?''+data[k].option3+'':'')+'<a href="#"  title="' + data[k].totalPrice + '" class="invoice invoice_hide' + k + '" data-order="' + data[k].orderNo + '" data-phone="' + data[k].telphone + '"  style="float:right;text-decoration: underline;">申请发票</a></p>' +
+                            '<p class="text-muted time"> <span class="time_data' + k + '">时间：'+formatDateTime(new Date(Number(data[k].option2)))+'</span><span class="border-left"></span><span>'+(data[k].option3 !='0'?''+data[k].option3+'':'')+'</span>'+
+                            '<a href="#"  title="' + data[k].totalPrice + '" class="invoice invoice_hide' + k + '" data-order="' + data[k].orderNo + '" data-phone="' + data[k].telphone + '"  style="float:right;text-decoration: underline;margin-left: 15px;">申请发票</a>'+
+                            '<span class="status' + k + '" style="float:right;margin-left: 15px;"></span>'+
+                            '<span class="verify' + k + '" style="float:right;"></span>'+
+                            '</p>' +
                             '</div>'
                         $(".main_list").append(html)
                         if(data[k].option1 == 0){
                             $(".invoice_hide" + k).css("display", "none")
+                        }
+                        if(data[k].verify == 0){
+                            $(".verify" + k).html('审核通过')
+                        }
+                        if(data[k].verify == 1){
+                            $(".verify" + k).html('审核中')
+                        }
+                        if(data[k].verify == 2){
+                            $(".verify" + k).html('审核拒绝')
+                        }
+                        if(data[k].status == 2){
+                            $(".status" + k).html('已付款')
+                        }
+                        if(data[k].status == 1){
+                            $(".status" + k).html('未付款')
                         }
                     }
                 }

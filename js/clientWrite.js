@@ -807,7 +807,7 @@ sub.on("click", function() {
                 "&telphone=" + telphoneval + "&option1=" + optionval1 + 
                 "&option2=" + optionval2 + "&option3=" + optionval3 + 
                 "&option4="+optionval4  + "&option5=" + optionval5 + 
-                "&activeId=" + activeId + "&isCheck=0" + "&from=" + (from==null?'0':from)
+                "&activeId=" + activeId + "&verify=0" + "&inviter=" + (from==null?'0':from)
                 $.ajax({
                     type: "post",
                     data: Data,
