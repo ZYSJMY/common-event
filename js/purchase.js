@@ -43,6 +43,7 @@
     var event_ID = (getQueryString("event_id"));
     var signUpId = (getQueryString("signUpId"));
     var codeID = (getQueryString("code"));
+    localStorage["type"] = (getQueryString("type"));
     var type = (getQueryString("type"));
     var wechatId;
     var pay = new Pay()
@@ -91,7 +92,7 @@
                                             type: "get",
                                             data: {
                                                 telphone: localStorage["wechatId"],
-                                                activeName:type
+                                                activeName:localStorage["type"]
                                             },
                                             url: changeUrl.address + "/CommonApi/send_pay_message.do",
                                             success: function(data) {
@@ -603,7 +604,7 @@
                         type: "get",
                         data: {
                             telphone: localStorage["wechatId"],
-                            activeName:type
+                            activeName:localStorage["type"]
                         },
                         url: changeUrl.address + "/CommonApi/send_pay_message.do",
                         success: function(data) {

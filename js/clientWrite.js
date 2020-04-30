@@ -95,12 +95,12 @@ function getQueryString(name) {
     return null;
 }
 var from = (getQueryString("from"));
-console.log()
 var id = (getQueryString("id"));
 var openPay   
 var eventName
 var expriyTime
 var type
+var verify
 //请求报名表
 $.ajax({
     type: "get",
@@ -405,6 +405,15 @@ $.ajax({
         console.log(data.data)
         eventName = data.data.eventName
         type = data.data.type
+        if(data.data.openVerify == 1 && data.data.openPay == 1){//支付开\审核开 支付且审核 verify1
+            verify = 0
+        }else if(data.data.openVerify == 0 && data.data.openPay == 1){//支付开\审核关 正常报名  verify  3
+            verify = 3
+        }else if(data.data.openVerify == 0 && data.data.openPay == 0){//支付关\审核关 正常不用付钱活动  verify1 审核通过
+            verify = 1
+        }else if(data.data.openVerify == 1 && data.data.openPay == 0){//支付关\审核开 赠票活动  verify0 审核中
+            verify = 0
+        }
         $("#activityTitle").html(data.data.eventName)
         $("title").html(data.data.eventName)
         $("#activityDescription").html(data.data.eventSummary)
@@ -414,8 +423,11 @@ $.ajax({
     }
 })  
 //提交表单
+var isClick = true;
 var sub = $("#sub")
 sub.on("click", function() {
+  if(isClick) {
+    isClick = false;
     //邮箱
     var reg = /^(\w-*\.*)+@(\w-?)+(\.\w{2,})+$/;
     //手机号
@@ -428,6 +440,9 @@ sub.on("click", function() {
             showClose: false,
             center: false,
         });
+        setTimeout(function() {
+            isClick = true;
+        }, 1000);
         return false;
     } else {
         var nameval = $("input[name=name]").val()
@@ -440,6 +455,9 @@ sub.on("click", function() {
             showClose: false,
             center: false,
         });
+        setTimeout(function() {
+            isClick = true;
+        }, 1000);
         return false;
     } else {
         var companyval = $("input[name=company]").val()
@@ -452,6 +470,9 @@ sub.on("click", function() {
             showClose: false,
             center: false,
         });
+        setTimeout(function() {
+            isClick = true;
+        }, 1000);
         return false;
     } else {
         var positionval = $("input[name=position]").val()
@@ -464,6 +485,9 @@ sub.on("click", function() {
             showClose: false,
             center: false,
         });
+        setTimeout(function() {
+            isClick = true;
+        }, 1000);
         return false;
     } else if (!reg.test($("input[name=userMail]").val())) {
         $.message({
@@ -473,6 +497,9 @@ sub.on("click", function() {
             showClose: false,
             center: false,
         });
+        setTimeout(function() {
+            isClick = true;
+        }, 1000);
         return false;
     } else {
         var userMailval = $("input[name=userMail]").val()
@@ -496,6 +523,9 @@ sub.on("click", function() {
                 showClose: false,
                 center: false,
             });
+            setTimeout(function() {
+                isClick = true;
+            }, 1000);
             return false;
         }
     }else if($(".option1 .checkbox_Show").is(":hidden")!=true){
@@ -513,6 +543,9 @@ sub.on("click", function() {
                 showClose: false,
                 center: false,
             });
+            setTimeout(function() {
+                isClick = true;
+            }, 1000);
             return false;
         }
     }else if($(".option1 .select_Show").is(":hidden")!=true){
@@ -527,6 +560,9 @@ sub.on("click", function() {
                 showClose: false,
                 center: false,
             });
+            setTimeout(function() {
+                isClick = true;
+            }, 1000);
             return false;
         } else {
             var optionval1 = $(".option1 input[name=option]").val()
@@ -553,6 +589,9 @@ sub.on("click", function() {
                 showClose: false,
                 center: false,
             });
+            setTimeout(function() {
+                isClick = true;
+            }, 1000);
             return false;
         }
     }else if($(".option2 .checkbox_Show").is(":hidden")!=true){
@@ -570,6 +609,9 @@ sub.on("click", function() {
                 showClose: false,
                 center: false,
             });
+            setTimeout(function() {
+                isClick = true;
+            }, 1000);
             return false;
         }
     }else if($(".option2 .select_Show").is(":hidden")!=true){
@@ -584,6 +626,9 @@ sub.on("click", function() {
                 showClose: false,
                 center: false,
             });
+            setTimeout(function() {
+                isClick = true;
+            }, 1000);
             return false;
         } else {
             var optionval2 = $(".option2 input[name=option]").val()
@@ -610,6 +655,9 @@ sub.on("click", function() {
                 showClose: false,
                 center: false,
             });
+            setTimeout(function() {
+                isClick = true;
+            }, 1000);
             return false;
         }
     }else if($(".option3 .checkbox_Show").is(":hidden")!=true){
@@ -627,6 +675,9 @@ sub.on("click", function() {
                 showClose: false,
                 center: false,
             });
+            setTimeout(function() {
+                isClick = true;
+            }, 1000);
             return false;
         }
     }else if($(".option3 .select_Show").is(":hidden")!=true){
@@ -641,6 +692,9 @@ sub.on("click", function() {
                 showClose: false,
                 center: false,
             });
+            setTimeout(function() {
+                isClick = true;
+            }, 1000);
             return false;
         } else {
             var optionval3 = $(".option3 input[name=option]").val()
@@ -667,6 +721,9 @@ sub.on("click", function() {
                 showClose: false,
                 center: false,
             });
+            setTimeout(function() {
+                isClick = true;
+            }, 1000);
             return false;
         }
     }else if($(".option4 .checkbox_Show").is(":hidden")!=true){
@@ -684,6 +741,9 @@ sub.on("click", function() {
                 showClose: false,
                 center: false,
             });
+            setTimeout(function() {
+                isClick = true;
+            }, 1000);
             return false;
         }
     }else if($(".option4 .select_Show").is(":hidden")!=true){
@@ -698,6 +758,9 @@ sub.on("click", function() {
                 showClose: false,
                 center: false,
             });
+            setTimeout(function() {
+                isClick = true;
+            }, 1000);
             return false;
         } else {
             var optionval4 = $(".option4 input[name=option]").val()
@@ -724,6 +787,9 @@ sub.on("click", function() {
                 showClose: false,
                 center: false,
             });
+            setTimeout(function() {
+                isClick = true;
+            }, 1000);
             return false;
         }
     }else if($(".option5 .checkbox_Show").is(":hidden")!=true){
@@ -741,6 +807,9 @@ sub.on("click", function() {
                 showClose: false,
                 center: false,
             });
+            setTimeout(function() {
+                isClick = true;
+            }, 1000);
             return false;
         }
     }else if($(".option5 .select_Show").is(":hidden")!=true){
@@ -755,6 +824,9 @@ sub.on("click", function() {
                 showClose: false,
                 center: false,
             });
+            setTimeout(function() {
+                isClick = true;
+            }, 1000);
             return false;
         } else {
             var optionval5 = $(".option5 input[name=option]").val()
@@ -770,6 +842,9 @@ sub.on("click", function() {
             showClose: false,
             center: false,
         });
+        setTimeout(function() {
+            isClick = true;
+        }, 1000);
         return false;
     } else if (!myreg.test($("input[name=telphone]").val())) {
         $.message({
@@ -779,6 +854,9 @@ sub.on("click", function() {
             showClose: false,
             center: false,
         });
+        setTimeout(function() {
+            isClick = true;
+        }, 1000);
         return false;
     } else {
         var telphoneval = $("input[name=telphone]").val()
@@ -799,6 +877,9 @@ sub.on("click", function() {
                     showClose: false,
                     center: false,
                 });
+                setTimeout(function() {
+                    isClick = true;
+                }, 1000);
                 return false;
             } else {
                 var Data = 
@@ -807,7 +888,7 @@ sub.on("click", function() {
                 "&telphone=" + telphoneval + "&option1=" + optionval1 + 
                 "&option2=" + optionval2 + "&option3=" + optionval3 + 
                 "&option4="+optionval4  + "&option5=" + optionval5 + 
-                "&activeId=" + activeId + "&verify=0" + "&inviter=" + (from==null?'0':from)
+                "&activeId=" + activeId + "&verify=" + verify  + "&inviter=" + (from==null?'0':from)
                 $.ajax({
                     type: "post",
                     data: Data,
@@ -823,7 +904,7 @@ sub.on("click", function() {
                             if(openPay == 1){
                                 window.location.href = changeUrl.Catalog + "/common-event/purchase.html?name=" + nameval + "&company=" + companyval + "&phone=" + telphoneval + "&event_id=" + event_id + "&type=" + type+ "&signUpId=" + signUpId
                             }else{
-                                window.location.href = changeUrl.Catalog + "/common-event/success.html"
+                                window.location.href = changeUrl.Catalog + "/common-event/personal.html?phone=" + telphoneval
                             }
                         }
                     }
@@ -831,4 +912,9 @@ sub.on("click", function() {
             }
         }
     })
+    //定时器
+    setTimeout(function() {
+        isClick = true;
+    }, 1000);//一秒内不能重复点击
+  }
 })

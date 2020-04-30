@@ -78,6 +78,8 @@ function vis_list(wechatId) {
                                 data[i].option1 = src.data.openInvoice
                                 data[i].option2 = src.data.eventStartTime
                                 data[i].option3 = src.data.eventPlace
+                                data[i].option4 = src.data.openPay
+                                data[i].option5 = src.data.openVerify
                             }
                         }) 
                     }
@@ -100,20 +102,37 @@ function vis_list(wechatId) {
                         if(data[k].option1 == 0){
                             $(".invoice_hide" + k).css("display", "none")
                         }
-                        if(data[k].verify == 0){
-                            $(".verify" + k).html('审核通过')
+                        if(data[k].option4 == 1 && data[k].option5 == 0){
+                            $(".status" + k).html('已支付')
+                            $(".verify" + k).css("display", "none")
                         }
-                        if(data[k].verify == 1){
-                            $(".verify" + k).html('审核中')
+                        if(data[k].option4 == 0 && data[k].option5 == 0){
+                            $(".status" + k).css("display", "none")
+                            $(".verify" + k).css("display", "none")
                         }
-                        if(data[k].verify == 2){
-                            $(".verify" + k).html('审核拒绝')
+                        if(data[k].option4 == 0 && data[k].option5 == 1){
+                            $(".status" + k).css("display", "none")
+                            if(data[k].verify == 0){
+                                $(".verify" + k).html('已通过')
+                            }
+                            if(data[k].verify == 1){
+                                $(".verify" + k).html('审核中')
+                            }
+                            if(data[k].verify == 2){
+                                $(".verify" + k).html('审核拒绝')
+                            }
                         }
-                        if(data[k].status == 2){
-                            $(".status" + k).html('已付款')
-                        }
-                        if(data[k].status == 1){
-                            $(".status" + k).html('未付款')
+                        if(data[k].option4 == 1 && data[k].option5 == 1){
+                            $(".status" + k).css("display", "none")
+                            if(data[k].verify == 0){
+                                $(".verify" + k).html('已通过')
+                            }
+                            if(data[k].verify == 1){
+                                $(".verify" + k).html('审核中')
+                            }
+                            if(data[k].verify == 2){
+                                $(".verify" + k).html('审核拒绝')
+                            }
                         }
                     }
                 }
