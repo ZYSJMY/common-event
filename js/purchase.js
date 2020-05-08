@@ -129,24 +129,6 @@
             error: function() {
                 console.log("error----1")
             }
-        }),
-        $.ajax({
-            type: "get",
-            data: {
-                activeId: event_ID
-            },
-            url: changeUrl.address + "/activity_tickets/find_item.do",
-            success: function(data) {
-                var data = data.data
-                for(var i in data){
-                    var html =
-                    '<div class="col-xs-12 col-md-6  list_color">'+
-                    '<input type="radio" name="Storage" id="model'+i+'" title="'+data[i].shortName+'" value="'+data[i].ticketPrice+'" />'+
-                    '<label for="model'+i+'">'+data[i].ticketName+' <span class="yuan">'+data[i].ticketPrice+'元</span></label>'+
-                    '</div>'
-                    $(".Block").append(html)
-                }
-            }
         })
     }
     //移动端
@@ -173,6 +155,7 @@
                     });
                     return false;
                 }
+                localStorage["activeId"] = event_ID
                 var data = "wechatId=" + phone +//手机号
                     "&goodsId=" + signUpId +//用户报名表id,
                     "&productName="+ type+"-" + titlename+//活动名+票简称
@@ -207,7 +190,7 @@
                             localStorage["name"] = buyerMessageArr[0]
                             localStorage["company"] = buyerMessageArr[1]
                             localStorage["goodsId"] = goodsId
-                            window.location.href = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx37e5ddff7dc5282e&redirect_uri=https://www.xinxueshuo.cn/event/common-event/purchase.html&event_id='+event_ID+'&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect'
+                            window.location.href = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx37e5ddff7dc5282e&redirect_uri=https://www.xinxueshuo.cn/event/common-event/purchase.html&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect'
                         }
                     },
                     error: function() {
@@ -642,7 +625,7 @@
 $.ajax({
     type: "get",
     data: {
-        activeId: event_ID
+        activeId: event_ID == null?''+localStorage["activeId"]+'':''+event_ID+''
     },
     url: changeUrl.address + "/activity_tickets/find_item.do",
     success: function(data) {
@@ -661,7 +644,7 @@ $.ajax({
 $.ajax({
     type: "get",
     data: {
-        id: event_ID
+        id: event_ID == null?''+localStorage["activeId"]+'':''+event_ID+''
     },
     url: changeUrl.address + '/nsiEvent/detail',
     success: function(data) {
