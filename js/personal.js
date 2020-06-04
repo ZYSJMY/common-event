@@ -60,6 +60,7 @@ function vis_list(wechatId) {
             console.log(data.data.list)
             if (data.code == 0) {
                var  data = data.data.list
+            //    var  orderData = data.data.list
                 if (data == "") {
                     $(".dingdan").css("display", "block")
                     $(".main").css("display", "none")
@@ -75,21 +76,21 @@ function vis_list(wechatId) {
                             url: changeUrl.address + '/nsiEvent/detail?id='+data[i].activeId,
                             success: function(src) {
                                 console.log(src)
-                                data[i].option1 = src.data.openInvoice
-                                data[i].option2 = src.data.eventStartTime
-                                data[i].option3 = src.data.eventPlace
-                                data[i].option4 = src.data.openPay
-                                data[i].option5 = src.data.openVerify
+                                data[i].option1 = src.data.openInvoice //发票开关
+                                data[i].option2 = src.data.eventStartTime//活动时间
+                                data[i].option3 = src.data.eventPlace//活动地点
+                                data[i].option4 = src.data.openPay//支付开关
+                                data[i].option5 = src.data.openVerify//审核开关
                             }
                         }) 
                     }
                     for(var k in data){
-                        var html = '<hr>' +
-                            ' <div>' +
+                        var html = '<hr class="hide' + k + '">' +
+                            ' <div class="hide' + k + '">' +
                             '<div  class="main_list_one main_list_d  main_list_one' + k + '">' +
                             '<h4 title="' + data[k].name + '" id="' + data[k].goodsId + '" data-type="' + data[k].productName.split("-").pop() + '" data-phone="' + data[k].telphone + '" data-creattime="' + data[k].createTime + '" data-order="' + data[k].orderNo + '" class="pull-left pull_name"><span>' + data[k].name + '</span>'+
                             '</h4>' +
-                            '<button type="button" class="btn btn-primary pull-right">查看电子门票</button>' +
+                            '<button type="button" class="btn btn-primary pull-right tickets' + k + '">查看电子门票</button>' +
                             '</div>' +
                             '<p class="text-muted piao' + k + '"></p>' +
                             '<p class="text-muted time"> <span class="time_data' + k + '">时间：'+formatDateTime(new Date(Number(data[k].option2)))+'</span><span class="border-left"></span><span>'+(data[k].option3 !='0'?''+data[k].option3+'':'')+'</span>'+
@@ -102,36 +103,51 @@ function vis_list(wechatId) {
                         if(data[k].option1 == 0){
                             $(".invoice_hide" + k).css("display", "none")
                         }
-                        if(data[k].option4 == 1 && data[k].option5 == 0){
-                            $(".status" + k).html('已支付')
+                        if(data[k].option4 == 1 && data[k].option5 == 0){ //审核关，支付开
                             $(".verify" + k).css("display", "none")
+                            console.log(data[k])
+                            if(data[k].status==2){
+                               $(".status" + k).html('已支付')
+                            }else{
+                               $(".hide" + k).css("display", "none")
+                            }
                         }
-                        if(data[k].option4 == 0 && data[k].option5 == 0){
-                            $(".status" + k).css("display", "none")
-                            $(".verify" + k).css("display", "none")
+                        if(data[k].option4 == 0 && data[k].option5 == 0){ //审核关，支付关
+                            $(".hide" + k).css("display", "none")
                         }
-                        if(data[k].option4 == 0 && data[k].option5 == 1){
+                        if(data[k].option4 == 0 && data[k].option5 == 1){//审核开，支付关
                             $(".status" + k).css("display", "none")
                             if(data[k].verify == 0){
-                                $(".verify" + k).html('已通过')
+                                $(".verify" + k).html('审核中')
+                                $(".tickets" + k).css("display", "none")
+                                $(".main_list_one" + k).removeClass("main_list_d")
                             }
                             if(data[k].verify == 1){
-                                $(".verify" + k).html('审核中')
+                                $(".verify" + k).html('已通过')
                             }
                             if(data[k].verify == 2){
                                 $(".verify" + k).html('审核拒绝')
+                                $(".tickets" + k).css("display", "none")
+                                $(".main_list_one" + k).removeClass("main_list_d")
                             }
                         }
-                        if(data[k].option4 == 1 && data[k].option5 == 1){
-                            $(".status" + k).css("display", "none")
-                            if(data[k].verify == 0){
-                                $(".verify" + k).html('已通过')
-                            }
-                            if(data[k].verify == 1){
-                                $(".verify" + k).html('审核中')
-                            }
-                            if(data[k].verify == 2){
-                                $(".verify" + k).html('审核拒绝')
+                        if(data[k].option4 == 1 && data[k].option5 == 1){  //审核开，支付开
+                            if(data[k].status==2){ //支付
+                                if(data[k].verify == 0){
+                                    $(".verify" + k).html('审核中')
+                                    $(".tickets" + k).css("display", "none")
+                                    $(".main_list_one" + k).removeClass("main_list_d")
+                                }
+                                if(data[k].verify == 1){
+                                    $(".verify" + k).html('已通过')
+                                }
+                                if(data[k].verify == 2){
+                                    $(".verify" + k).html('审核拒绝')
+                                    $(".tickets" + k).css("display", "none")
+                                    $(".main_list_one" + k).removeClass("main_list_d")
+                                }
+                            }else{//未支付
+                                $(".hide" + k).css("display", "none")
                             }
                         }
                     }

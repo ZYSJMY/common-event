@@ -103,9 +103,19 @@
                                             }
                                         })
                                     } else if (res.err_msg == "get_brand_wcpay_request:cancel") {
-                                        window.location.href = changeUrl.Catalog + "/common-event/purchase.html?name=" + localStorage["name"] + "&company=" + localStorage["company"] + "&phone=" + localStorage["wechatId"] + "&id=" + localStorage["goodsId"]
+                                        window.location.href = changeUrl.Catalog + "/common-event/purchase.html?name=" + localStorage["name"] + 
+                                        "&company=" + localStorage["company"] + 
+                                        "&phone=" + localStorage["wechatId"] + 
+                                        "&signUpId=" + localStorage["goodsId"] +
+                                        "&event_id="+localStorage["activeId"] +
+                                        "&type="+localStorage["type"]
                                     } else if (res.err_msg == "get_brand_wcpay_request:fail") {
-                                        window.location.href = changeUrl.Catalog + "/common-event/purchase.html?name=" + localStorage["name"] + "&company=" + localStorage["company"] + "&phone=" + localStorage["wechatId"] + "&id=" + localStorage["goodsId"]
+                                        window.location.href = changeUrl.Catalog + "/common-event/purchase.html?name=" + localStorage["name"] + 
+                                        "&company=" + localStorage["company"] + 
+                                        "&phone=" + localStorage["wechatId"] + 
+                                        "&signUpId=" + localStorage["goodsId"] +
+                                        "&event_id="+localStorage["activeId"] +
+                                        "&type="+localStorage["type"]
                                     }
                                 }
                             );
