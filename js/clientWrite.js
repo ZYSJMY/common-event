@@ -1,10 +1,8 @@
-
 //验证码
 var waitTime = 60;
 document.getElementById("Code_btn").onclick = function() {
     time(this);
 }
-
 function time(ele) {
     if (waitTime == 0) {
         ele.disabled = false;
@@ -62,8 +60,6 @@ $("input[name=telphone]").keyup(function(event) {
         $("#Code_btn").attr("disabled", true)
     }
 })
-
-
 // body高度
 $(function() {
     var height = $(window).height()
@@ -96,6 +92,7 @@ function getQueryString(name) {
 }
 var from = (getQueryString("from"));
 var id = (getQueryString("id"));
+console.log('2020/6/15-3')
 var openPay   
 var eventName
 var expriyTime
@@ -904,7 +901,8 @@ sub.on("click", function() {
                             if(openPay == 1){
                                 window.location.href = changeUrl.Catalog + "/common-event/purchase.html?name=" + nameval + "&company=" + companyval + "&phone=" + telphoneval + "&event_id=" + event_id + "&type=" + type+ "&signUpId=" + signUpId
                             }else{
-                                window.location.href = changeUrl.Catalog + "/common-event/personal.html?phone=" + telphoneval
+                                // window.location.href = changeUrl.Catalog + "/common-event/personal.html?phone=" + telphoneval
+                                window.location.href = changeUrl.Catalog + "/common-event/success.html"
                             }
                         }
                     }

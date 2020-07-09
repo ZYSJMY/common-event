@@ -43,7 +43,6 @@
     var event_ID = (getQueryString("event_id"));
     var signUpId = (getQueryString("signUpId"));
     var codeID = (getQueryString("code"));
-    localStorage["type"] = (getQueryString("type"));
     var type = (getQueryString("type"));
     var wechatId;
     var pay = new Pay()
@@ -659,6 +658,7 @@ $.ajax({
     url: changeUrl.address + '/nsiEvent/detail',
     success: function(data) {
         console.log(data.data)
+        localStorage["type"] = data.data.type
         if(data.data.ticketInfo01 == '0'){
             $('.guibing').hide()
             $('hr').hide()
