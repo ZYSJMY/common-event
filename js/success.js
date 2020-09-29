@@ -77,8 +77,3 @@ $(function() {
 //     })
 // }
 // loading2()
-
-
-// $(".top_img").click(function() {
-//     window.location.href = changeUrl.imgurl + "/nsi-event/2019Vis-activity/personal.html?phone=" + phone
-// })

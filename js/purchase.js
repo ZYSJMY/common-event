@@ -97,7 +97,7 @@
                                             success: function(data) {
                                                 console.log(data)
                                                 if (data.code == 0) {
-                                                    window.location.href = changeUrl.Catalog + "/common-event/personal.html?phone=" + localStorage["wechatId"]
+                                                    window.location.href = changeUrl.Catalog + "/common-event/personal.html?phone=" + localStorage["wechatId"]+ "&id=" + +localStorage["activeId"] 
                                                 }
                                             }
                                         })
@@ -189,7 +189,7 @@
                             payment = data.data.payment //价钱
                             orderNo = data.data.orderNo //订单号
                             wechatId = data.data.wechatId //手机号
-                            productName = data.data.productName //vis2019
+                            productName = data.data.productName //vis2020
                             productType = data.data.productType //活动
                             quantity = data.data.quantity //是否公开信息
                             localStorage["paybody"] = productName + "-" + titlename
@@ -224,7 +224,7 @@
             if (pay.isWeixn) {
                 $.message({
                     message: "微信不支持支付宝支付,请点击右上角在系统浏览器中打开",
-                    type: 'warning',
+                    type: 'danger',
                     duration: 4000,
                     showClose: false,
                     center: false,
@@ -275,7 +275,7 @@
                             payment = data.data.payment //价钱
                             orderNo = data.data.orderNo //订单号
                             wechatId = data.data.wechatId //手机号
-                            productName = data.data.productName //vis2019
+                            productName = data.data.productName //vis2020
                             productType = data.data.productType //活动
                             quantity = data.data.quantity //是否公开信息
                             localStorage["paybody"] = productName + "-" + titlename
@@ -370,7 +370,7 @@
                         payment = data.data.payment //价钱
                         orderNo = data.data.orderNo //订单号
                         wechatId = data.data.wechatId //手机号
-                        productName = data.data.productName //vis2019
+                        productName = data.data.productName //vis2020
                         productType = data.data.productType //活动
                         quantity = data.data.quantity //是否公开信息
                         localStorage["paybody"] = productName + "-" + titlename
@@ -445,7 +445,7 @@
                         payment = data.data.payment //价钱
                         orderNo = data.data.orderNo //订单号
                         wechatId = data.data.wechatId //手机号
-                        productName = data.data.productName //vis2019
+                        productName = data.data.productName //vis2020
                         productType = data.data.productType //活动
                         quantity = data.data.quantity //是否公开信息
                         localStorage["paybody"] = productName + "-" + titlename
@@ -602,7 +602,7 @@
                         success: function(data) {
                             console.log(data)
                             if (data.code == 0) {
-                                window.location.href = changeUrl.Catalog + "/common-event/personal.html?phone=" + localStorage["wechatId"]
+                                window.location.href = changeUrl.Catalog + "/common-event/personal.html?phone=" + localStorage["wechatId"]+ "&id=" + +localStorage["activeId"] 
                             }
                         }
                     })
@@ -630,47 +630,53 @@
         cover.style.display = "none"; //隐藏遮罩层
         modal.style.display = "none"; //隐藏弹出层
     })
+    aaaa()
+function  aaaa(){
+    loading2()
+    $.ajax({
+        type: "get",
+        data: {
+            activeId: event_ID == null?''+localStorage["activeId"]+'':''+event_ID+''
+        },
+        url: changeUrl.address + "/activity_tickets/find_item.do",
+        success: function(data) {
+            var data = data.data
+            for(var i in data){
+                var html =
+                '<div class="col-xs-12 col-md-6  list_color">'+
+                '<input type="radio" name="Storage" id="model'+i+'" title="'+data[i].shortName+'" value="'+data[i].ticketPrice+'" />'+
+                '<label for="model'+i+'">'+data[i].ticketName+' <span class="yuan">'+data[i].ticketPrice+'元</span></label>'+
+                '</div>'
+                $(".Block").append(html)
+            }
+            removeLoading('test');
+        }
+    })
+    //请求是否开启的功能
+    $.ajax({
+        type: "get",
+        data: {
+            id: event_ID == null?''+localStorage["activeId"]+'':''+event_ID+''
+        },
+        url: changeUrl.address + '/nsiEvent/detail',
+        success: function(data) {
+            console.log(data.data)
+            localStorage["type"] = data.data.type
+            if(data.data.ticketInfo01 == '0'){
+                $('.guibing').hide()
+                $('hr').hide()
+            }else{
+                $('.guibing').html(data.data.ticketInfo01)
+            }
+            if(data.data.ticketInfo02 == '0'){
+                $('.zunxiang').hide()
+                $('hr').hide()
+            }else{
+                $('.zunxiang').html(data.data.ticketInfo02)
+            }
+        }
+    })
+}
 
-$.ajax({
-    type: "get",
-    data: {
-        activeId: event_ID == null?''+localStorage["activeId"]+'':''+event_ID+''
-    },
-    url: changeUrl.address + "/activity_tickets/find_item.do",
-    success: function(data) {
-        var data = data.data
-        for(var i in data){
-            var html =
-            '<div class="col-xs-12 col-md-6  list_color">'+
-            '<input type="radio" name="Storage" id="model'+i+'" title="'+data[i].shortName+'" value="'+data[i].ticketPrice+'" />'+
-            '<label for="model'+i+'">'+data[i].ticketName+' <span class="yuan">'+data[i].ticketPrice+'元</span></label>'+
-            '</div>'
-            $(".Block").append(html)
-        }
-    }
-})
-//请求是否开启的功能
-$.ajax({
-    type: "get",
-    data: {
-        id: event_ID == null?''+localStorage["activeId"]+'':''+event_ID+''
-    },
-    url: changeUrl.address + '/nsiEvent/detail',
-    success: function(data) {
-        console.log(data.data)
-        localStorage["type"] = data.data.type
-        if(data.data.ticketInfo01 == '0'){
-            $('.guibing').hide()
-            $('hr').hide()
-        }else{
-            $('.guibing').html(data.data.ticketInfo01)
-        }
-        if(data.data.ticketInfo02 == '0'){
-            $('.zunxiang').hide()
-            $('hr').hide()
-        }else{
-            $('.zunxiang').html(data.data.ticketInfo02)
-        }
-    }
-})
+
 

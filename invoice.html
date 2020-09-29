@@ -38,6 +38,30 @@
             text-align: center;
             line-height: 40px;
         }
+        .btn_box{
+            display: flex;
+            flex-wrap: nowrap;
+        }
+        .spanList{ 
+            width: 50%;
+            height: 50px;
+            line-height: 50px;
+            font-size: 16px;
+            color: #fff; 
+            text-align: center;
+            font-weight: 400;
+            background-color:#bbbbbb ;
+        }
+        .active{
+            font-size: 16px;
+            font-weight: 600;
+            color: #fff; 
+            text-align: center;
+            background-color:#f0ad4e ;
+        }
+        .con { 
+            display:none; 
+        }
     </style>
 </head>
 
@@ -46,86 +70,184 @@
         <div class="content container">
             <div id="body"></div>
             <div id="cover"></div>
+            <div class="btn_box">
+                <span class="active spanList">普票</span>
+                <span class="spanList">专票</span>
+            </div>
+            <div class="context">
+                <!-- Tab内容 -->
+                <div class="con">
+                <form action="" id="content">
+                    <div class="form-group">
+                    </div>
+                    <div class="form-group">
+                        <div class="row">
+                            <label class="Title col-md-12 control-label">1.订单编号</label>
+                            <div class="col-md-12">
+                                <input type="text" name="orderNo" class="form-control" placeholder="" disabled="disabled">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="row">
+                            <label class="Title col-md-12 control-label">2.实付金额</label>
+                            <div class="col-md-12">
+                                <input type="text" name="totalPrice" class="form-control" placeholder="" disabled="disabled">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="row">
+                            <label class="Title col-md-12 control-label">3.发票抬头</label>
+                            <div class="col-md-12">
+                                <input type="text" name="userinvoicename" class="form-control" placeholder="请输入发票抬头">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="row">
+                            <label class="Title col-md-12 control-label">4.企业税号</label>
+                            <div class="col-md-12">
+                                <input type="text" name="userinvoicenum" class="form-control" placeholder="请输入企业税号">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="row">
+                            <label class="Title col-md-12 control-label">5.姓名</label>
+                            <div class="col-md-12">
+                                <input type="text" name="user" class="form-control" placeholder="请输入姓名">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="row">
+                            <label class="Title col-md-12 control-label">6.邮箱</label>
+                            <div class="col-md-12">
+                                <input type="text" name="userMail" class="form-control" placeholder="请输入邮箱">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="row">
+                            <label class="Title col-md-12 control-label">7.开票内容</label>
+                            <div class="col-md-12">
+                                <select id="test" class="form-control">
+                                    <option>会议费</option>
+                                    <option>会议服务费</option>
+                                    <option>会议展览费</option>
+                                    </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-md-12 text-center">
+                                <input type="button" value="立即提交" id="sub" class="btn  btn-warning btn-block">
+                            </div>
+                        </div>
+                    </div>
+                </form></div>
+                <div class="con">
+                <form action="" id="content">
+                    <div class="form-group">
+                    </div>
+                    <div class="form-group">
+                        <div class="row">
+                            <label class="Title col-md-12 control-label">1.订单编号</label>
+                            <div class="col-md-12">
+                                <input type="text" name="orderNo1" class="form-control" placeholder="" disabled="disabled">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="row">
+                            <label class="Title col-md-12 control-label">2.实付金额</label>
+                            <div class="col-md-12">
+                                <input type="text" name="totalPrice1" class="form-control" placeholder="" disabled="disabled">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="row">
+                            <label class="Title col-md-12 control-label">3.用户姓名</label>
+                            <div class="col-md-12">
+                                <input type="text" name="username1" class="form-control" placeholder="请输入姓名">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="row">
+                            <label class="Title col-md-12 control-label">4.公司名称</label>
+                            <div class="col-md-12">
+                                <input type="text" name="user1" class="form-control" placeholder="请输入公司名称">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="row">
+                            <label class="Title col-md-12 control-label">5.纳税人识别号（税号）</label>
+                            <div class="col-md-12">
+                                <input type="text" name="userinvoicenum1" class="form-control" placeholder="请输入纳税人识别号">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="row">
+                            <label class="Title col-md-12 control-label">6.开户行及账号</label>
+                            <div class="col-md-12">
+                                <input type="text" name="userinvoicename1" class="form-control" placeholder="请输入开户及账号">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="row">
+                            <label class="Title col-md-12 control-label">7.注册地址</label>
+                            <div class="col-md-12">
+                                <input type="text" name="userBankAddr" class="form-control" placeholder="请输入地址">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="row">
+                            <label class="Title col-md-12 control-label">8.注册电话</label>
+                            <div class="col-md-12">
+                                <input type="text" name="userReservePhone" class="form-control" placeholder="请输入电话">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="row">
+                            <label class="Title col-md-12 control-label">9.邮寄地址及联系人联系人方式</label>
+                            <div class="col-md-12">
+                                <input type="text" name="userMail1" class="form-control" placeholder="请输入邮寄地址">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="row">
+                            <label class="Title col-md-12 control-label">10.开票内容</label>
+                            <div class="col-md-12">
+                                <select id="test1" class="form-control">
+                                    <option>会议费</option>
+                                    <option>会议服务费</option>
+                                    <option>会议展览费</option>
+                                    </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-md-12 text-center">
+                                <input type="button" value="立即提交" id="sub1" class="btn  btn-warning btn-block">
+                            </div>
+                        </div>
+                    </div>
+                </form></div>
+            </div>
             <div id="modal" class="alert-success">
                 <strong>提交成功！</strong> 两个工作日内将会发到您的邮箱
             </div>
-            <div class="activeTitle">
-                <div class="top">
-                    <span class="iconfont icon-huodong1 activeTitle_logo"></span>
-                    <span class="activeTitle_desc">新学说-发票申请</span>
-                </div>
-                <div class="row activityPic" id="activityPic"></div>
-            </div>
-            <form action="" id="content">
-                <div class="form-group">
-                </div>
-                <div class="form-group">
-                    <div class="row">
-                        <label class="Title col-md-12 control-label">1.订单编号</label>
-                        <div class="col-md-12">
-                            <input type="text" name="orderNo" class="form-control" placeholder="" disabled="disabled">
-                        </div>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="row">
-                        <label class="Title col-md-12 control-label">2.实付金额</label>
-                        <div class="col-md-12">
-                            <input type="text" name="totalPrice" class="form-control" placeholder="" disabled="disabled">
-                        </div>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="row">
-                        <label class="Title col-md-12 control-label">3.发票抬头</label>
-                        <div class="col-md-12">
-                            <input type="text" name="userinvoicename" class="form-control" placeholder="请输入发票抬头">
-                        </div>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="row">
-                        <label class="Title col-md-12 control-label">4.企业税号</label>
-                        <div class="col-md-12">
-                            <input type="text" name="userinvoicenum" class="form-control" placeholder="请输入企业税号">
-                        </div>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="row">
-                        <label class="Title col-md-12 control-label">5.姓名</label>
-                        <div class="col-md-12">
-                            <input type="text" name="user" class="form-control" placeholder="请输入姓名">
-                        </div>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="row">
-                        <label class="Title col-md-12 control-label">6.接收邮箱</label>
-                        <div class="col-md-12">
-                            <input type="text" name="userMail" class="form-control" placeholder="请输入邮箱">
-                        </div>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="row">
-                        <label class="Title col-md-12 control-label">7.发票类型</label>
-                        <div class="col-md-12">
-                            <select id="test" class="form-control">
-                                <option>会议费</option>
-                                <option>会议服务费</option>
-                              </select>
-                        </div>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="row">
-                        <div class="col-md-12 text-center">
-                            <input type="button" value="立即提交" id="sub" class="btn  btn-warning btn-block">
-                        </div>
-                    </div>
-                </div>
-            </form>
         </div>
     </div>
 </body>
@@ -140,7 +262,14 @@
         var height = $(window).height()
         $(document.body).css("min-height", height)
     })
-
+    $(".con").eq(0).show();
+    $(".btn_box span").click(function(){
+        var num =$(".btn_box span").index(this);
+        $(".con").hide();
+        $(".con").eq(num).show();
+        $(this).attr("class","active spanList");
+        $(this).siblings().attr("class","spanList");
+    })
     function getQueryString(name) {
         var reg = new RegExp('(^|&)' + name + '=([^&]*)(&|$)', 'i');
         var r = window.location.search.substr(1).match(reg);
@@ -152,92 +281,222 @@
     var orderNo = (getQueryString("orderNo"));
     var totalPrice = (getQueryString("totalPrice"));
     var phone = (getQueryString("phone"));
+    var id = (getQueryString("id"));
     $("input[name=orderNo]").val(orderNo)
     $("input[name=totalPrice]").val(totalPrice)
+    $("input[name=orderNo1]").val(orderNo)
+    $("input[name=totalPrice1]").val(totalPrice)
     $("#sub").click(function() {
-        cover.style.display = "block"; //显示遮罩层
-        modal.style.display = "block"; //显示弹出层
-        // var orderNo = $("input[name=orderNo]").val()
-        // var totalPrice = $("input[name=totalPrice]").val()
-        //     //邮箱
-        // var reg = new RegExp("^[a-z0-9]+([._\\-]*[a-z0-9])*@([a-z0-9]+[-a-z0-9]*[a-z0-9]+.){1,63}[a-z0-9]+$");
-        // if ($("input[name=userinvoicename]").val() == "") {
-        //     $.message({
-        //         message: "发票抬头不能为空！",
-        //         type: 'warning',
-        //         duration: 2000,
-        //         showClose: false,
-        //         center: false,
-        //     });
-        //     return false;
-        // } else {
-        //     var userinvoicename = $("input[name=userinvoicename]").val()
-        // }
-        // if ($("input[name=userinvoicenum]").val() == "") {
-        //     $.message({
-        //         message: "企业税号不能为空！",
-        //         type: 'warning',
-        //         duration: 2000,
-        //         showClose: false,
-        //         center: false,
-        //     });
-        //     return false;
-        // } else {
-        //     var userinvoicenum = $("input[name=userinvoicenum]").val()
-        // }
-        // if ($("input[name=user]").val() == "") {
-        //     $.message({
-        //         message: "姓名不能为空！",
-        //         type: 'warning',
-        //         duration: 2000,
-        //         showClose: false,
-        //         center: false,
-        //     });
-        //     return false;
-        // } else {
-        //     var user = $("input[name=user]").val()
-        // }
-        // if ($("input[name=userMail]").val() == "") {
-        //     $.message({
-        //         message: "邮箱不能为空！",
-        //         type: 'warning',
-        //         duration: 2000,
-        //         showClose: false,
-        //         center: false,
-        //     });
-        //     return false;
-        // } else if (!reg.test($("input[name=userMail]").val())) {
-        //     $.message({
-        //         message: "邮箱格式不正确，请正确输入!",
-        //         type: 'warning',
-        //         duration: 2000,
-        //         showClose: false,
-        //         center: false,
-        //     });
-        //     return false;
-        // } else {
-        //     var userMailval = $("input[name=userMail]").val()
-        // }
-        // //下拉框
-        // var options = $("#test option:selected");
-        // var optionsval = options.val()
-        // var Data = "userinvoicename=" + userinvoicename + "&userinvoicenum=" + userinvoicenum + "&userbillingtype=" + optionsval + "&usermail=" + userMailval + "&username=" + user + "&userordernum=" + orderNo + "&managemoney=" + totalPrice
-        // $.ajax({
-        //     type: "post",
-        //     data: Data,
-        //     async: true,
-        //     dataType: "json",
-        //     url: changeUrl.address + '/Invoice/EventInvoiceCreate.do',
-        //     success: function(data) {
-        //         console.log(data)
-        //         if (data.code == 0) {
-        //             cover.style.display = "block"; //显示遮罩层
-        //             modal.style.display = "block"; //显示弹出层
-        //             setTimeout(function() {
-        //                 window.location.href = changeUrl.Catalog +"/common-event/personal.html?phone=" + phone
-        //             }, 3000);
-        //         }
-        //     },
-        // })
+        var orderNo = $("input[name=orderNo]").val()
+        var totalPrice = $("input[name=totalPrice]").val()
+            //邮箱
+        var reg = new RegExp("^[a-z0-9]+([._\\-]*[a-z0-9])*@([a-z0-9]+[-a-z0-9]*[a-z0-9]+.){1,63}[a-z0-9]+$");
+        if ($("input[name=userinvoicename]").val() == "") {
+            $.message({
+                message: "发票抬头不能为空！",
+                type: 'warning',
+                duration: 2000,
+                showClose: false,
+                center: false,
+            });
+            return false;
+        } else {
+            var userinvoicename = $("input[name=userinvoicename]").val()
+        }
+        if ($("input[name=userinvoicenum]").val() == "") {
+            $.message({
+                message: "企业税号不能为空！",
+                type: 'warning',
+                duration: 2000,
+                showClose: false,
+                center: false,
+            });
+            return false;
+        } else {
+            var userinvoicenum = $("input[name=userinvoicenum]").val()
+        }
+        if ($("input[name=user]").val() == "") {
+            $.message({
+                message: "姓名不能为空！",
+                type: 'warning',
+                duration: 2000,
+                showClose: false,
+                center: false,
+            });
+            return false;
+        } else {
+            var user = $("input[name=user]").val()
+        }
+        if ($("input[name=userMail]").val() == "") {
+            $.message({
+                message: "邮箱不能为空！",
+                type: 'warning',
+                duration: 2000,
+                showClose: false,
+                center: false,
+            });
+            return false;
+        } else if (!reg.test($("input[name=userMail]").val())) {
+            $.message({
+                message: "邮箱格式不正确，请正确输入!",
+                type: 'warning',
+                duration: 2000,
+                showClose: false,
+                center: false,
+            });
+            return false;
+        } else {
+            var userMailval = $("input[name=userMail]").val()
+        }
+        //下拉框
+        var options = $("#test option:selected");
+        var optionsval = options.val()
+        var Data = "userInvoiceName=" + userinvoicename + 
+        "&userInvoiceNum=" + userinvoicenum + 
+        "&userBillingType=" + optionsval + 
+        "&usermail=" + userMailval + 
+        "&username=" + user + 
+        "&userOrderNum=" + orderNo + 
+        "&manageMoney=" + totalPrice+
+        "&invoiceType=1" 
+        $.ajax({
+            type: "post",
+            data: Data,
+            async: true,
+            dataType: "json",
+            url: changeUrl.address + '/Invoice/EventInvoiceCreate.do',
+            success: function(data) {
+                console.log(data)
+                if (data.code == 0) {
+                    cover.style.display = "block"; //显示遮罩层
+                    modal.style.display = "block"; //显示弹出层
+                    setTimeout(function() {
+                      window.location.href = changeUrl.Catalog +"/common-event/personal.html?phone=" + phone+"&id="+id
+                    }, 3000);
+                }
+            },
+        })
+    })
+    $("#sub1").click(function() {
+        var orderNo = $("input[name=orderNo1]").val()
+        var totalPrice = $("input[name=totalPrice1]").val()
+            //邮箱
+        var reg = new RegExp("^[a-z0-9]+([._\\-]*[a-z0-9])*@([a-z0-9]+[-a-z0-9]*[a-z0-9]+.){1,63}[a-z0-9]+$");
+        if ($("input[name=username1]").val() == "") {
+            $.message({
+                message: "名称不能为空！",
+                type: 'warning',
+                duration: 2000,
+                showClose: false,
+                center: false,
+            });
+            return false;
+        } else {
+            var username1 = $("input[name=username1]").val()
+        }
+        if ($("input[name=user1]").val() == "") {
+            $.message({
+                message: "公司名称不能为空！",
+                type: 'warning',
+                duration: 2000,
+                showClose: false,
+                center: false,
+            });
+            return false;
+        } else {
+            var user1 = $("input[name=user1]").val()
+        }
+        if ($("input[name=userinvoicenum1]").val() == "") {
+            $.message({
+                message: "税号不能为空！",
+                type: 'warning',
+                duration: 2000,
+                showClose: false,
+                center: false,
+            });
+            return false;
+        } else {
+            var userinvoicenum1 = $("input[name=userinvoicenum1]").val()
+        }
+        if ($("input[name=userinvoicename1]").val() == "") {
+            $.message({
+                message: "开户行及账号不能为空！",
+                type: 'warning',
+                duration: 2000,
+                showClose: false,
+                center: false,
+            });
+            return false;
+        } else {
+            var userinvoicename1 = $("input[name=userinvoicename1]").val()
+        }
+        if ($("input[name=userBankAddr]").val() == "") {
+            $.message({
+                message: "开户行地址不能为空！",
+                type: 'warning',
+                duration: 2000,
+                showClose: false,
+                center: false,
+            });
+            return false;
+        } else {
+            var userBankAddr = $("input[name=userBankAddr]").val()
+        }
+        if ($("input[name=userReservePhone]").val() == "") {
+            $.message({
+                message: "开户行电话不能为空！",
+                type: 'warning',
+                duration: 2000,
+                showClose: false,
+                center: false,
+            });
+            return false;
+        } else {
+            var userReservePhone = $("input[name=userReservePhone]").val()
+        }
+        if ($("input[name=userMail1]").val() == "") {
+            $.message({
+                message: "邮寄地址不能为空！",
+                type: 'warning',
+                duration: 2000,
+                showClose: false,
+                center: false,
+            });
+            return false;
+        } else {
+            var userMailval1 = $("input[name=userMail1]").val()
+        }
+        //下拉框
+        var options1 = $("#test1 option:selected");
+        var optionsval1 = options1.val()
+        var Data = 
+        "&userOrderNum=" + orderNo + //订单编号
+        "&manageMoney=" + totalPrice+// 付款金额
+        "&username=" + username1 + 
+        "&userInvoiceName=" + user1 + //公司名称
+        "&userInvoiceNum=" + userinvoicenum1 + //纳税人识别号（税号）
+        "accountNum=" + userinvoicename1 + //开户行及账号
+        "&userBankAddr=" + userBankAddr + //注册地址
+        "&userReservePhone=" + userReservePhone + //注册手机号
+        "&emailAddress=" + userMailval1 + //邮箱
+        "&userBillingType=" + optionsval1 + //开票内容
+        "&invoiceType=2" //发票类型2-专票
+        $.ajax({
+            type: "post",
+            data: Data,
+            async: true,
+            dataType: "json",
+            url: changeUrl.address + '/Invoice/EventInvoiceCreate.do',
+            success: function(data) {
+                console.log(data)
+                if (data.code == 0) {
+                    cover.style.display = "block"; //显示遮罩层
+                    modal.style.display = "block"; //显示弹出层
+                    setTimeout(function() {
+                        window.location.href = changeUrl.Catalog +"/common-event/personal.html?phone=" + phone+"&id="+id
+                    }, 3000);
+                }
+            },
+        })
     })
 </script>

@@ -29,29 +29,29 @@ function getQueryString(name) {
     return null;
 }
 var phone = (getQueryString("phone"));
-vis_list(phone)
-// if (phone == null || phone == "") {
-//     //wechatId 是手机号
-//     if (localStorage["wechatId"] == null || localStorage["wechatId"] == undefined) {
-//         cover.style.display = "block"; //显示遮罩层
-//         modal.style.display = "block"; //显示弹出层
-//     } else {
-//         $(".text_phone span").html("用户手机号：" + localStorage["wechatId"] + "&nbsp;&nbsp;&nbsp;")
-        
-//         vis_list(localStorage["wechatId"])
-//     }
-// } else {
-//     $(".text_phone span").html("用户手机号：" + phone + "&nbsp;&nbsp;&nbsp;")
-//     $(".text_phone #qiehuan").html("切换账号")
-//     vis_list(phone)
-// }
+var clientWriteId = (getQueryString("id"));
+if (phone == null || phone == "") {
+    //wechatId 是手机号
+    if (localStorage["wechatId"] == null || localStorage["wechatId"] == undefined) {
+        cover.style.display = "block"; //显示遮罩层
+        modal.style.display = "block"; //显示弹出层
+    } else {
+        $(".text_phone span").html("用户手机号：" + localStorage["wechatId"] + "&nbsp;&nbsp;&nbsp;")
+        vis_list(localStorage["wechatId"],clientWriteId)
+    }
+} else {
+    $(".text_phone span").html("用户手机号：" + phone + "&nbsp;&nbsp;&nbsp;")
+    $(".text_phone #qiehuan").html("切换账号")
+    vis_list(phone,clientWriteId)
+}
 
 //请求数据
-function vis_list(wechatId) {
+function vis_list(wechatId,clientWriteId) {
     $.ajax({
         type: "get",
         data: {
             "phone": wechatId,
+            "activeId":clientWriteId,
             pageNum:1,
             pageSize:10
         },
@@ -60,7 +60,7 @@ function vis_list(wechatId) {
             console.log(data.data.list)
             if (data.code == 0) {
                var  data = data.data.list
-            //    var  orderData = data.data.list
+               console.log(data)
                 if (data == "") {
                     $(".dingdan").css("display", "block")
                     $(".main").css("display", "none")
@@ -76,11 +76,11 @@ function vis_list(wechatId) {
                             url: changeUrl.address + '/nsiEvent/detail?id='+data[i].activeId,
                             success: function(src) {
                                 console.log(src)
-                                data[i].option1 = src.data.openInvoice //发票开关
+                                // data[i].option1 = src.data.openInvoice //发票开关
                                 data[i].option2 = src.data.eventStartTime//活动时间
                                 data[i].option3 = src.data.eventPlace//活动地点
-                                data[i].option4 = src.data.openPay//支付开关
-                                data[i].option5 = src.data.openVerify//审核开关
+                                // data[i].option4 = src.data.openPay//支付开关
+                                // data[i].option5 = src.data.openVerify//审核开关
                             }
                         }) 
                     }
@@ -100,56 +100,56 @@ function vis_list(wechatId) {
                             '</p>' +
                             '</div>'
                         $(".main_list").append(html)
-                        if(data[k].option1 == 0){
-                            $(".invoice_hide" + k).css("display", "none")
-                        }
-                        if(data[k].option4 == 1 && data[k].option5 == 0){ //审核关，支付开
-                            $(".verify" + k).css("display", "none")
-                            console.log(data[k])
-                            if(data[k].status==2){
-                               $(".status" + k).html('已支付')
-                            }else{
-                               $(".hide" + k).css("display", "none")
-                            }
-                        }
-                        if(data[k].option4 == 0 && data[k].option5 == 0){ //审核关，支付关
-                            $(".hide" + k).css("display", "none")
-                        }
-                        if(data[k].option4 == 0 && data[k].option5 == 1){//审核开，支付关
-                            $(".status" + k).css("display", "none")
-                            if(data[k].verify == 0){
-                                $(".verify" + k).html('审核中')
-                                $(".tickets" + k).css("display", "none")
-                                $(".main_list_one" + k).removeClass("main_list_d")
-                            }
-                            if(data[k].verify == 1){
-                                $(".verify" + k).html('已通过')
-                            }
-                            if(data[k].verify == 2){
-                                $(".verify" + k).html('审核拒绝')
-                                $(".tickets" + k).css("display", "none")
-                                $(".main_list_one" + k).removeClass("main_list_d")
-                            }
-                        }
-                        if(data[k].option4 == 1 && data[k].option5 == 1){  //审核开，支付开
-                            if(data[k].status==2){ //支付
-                                if(data[k].verify == 0){
-                                    $(".verify" + k).html('审核中')
-                                    $(".tickets" + k).css("display", "none")
-                                    $(".main_list_one" + k).removeClass("main_list_d")
-                                }
-                                if(data[k].verify == 1){
-                                    $(".verify" + k).html('已通过')
-                                }
-                                if(data[k].verify == 2){
-                                    $(".verify" + k).html('审核拒绝')
-                                    $(".tickets" + k).css("display", "none")
-                                    $(".main_list_one" + k).removeClass("main_list_d")
-                                }
-                            }else{//未支付
-                                $(".hide" + k).css("display", "none")
-                            }
-                        }
+                        // if(data[k].option1 == 0){
+                        //     $(".invoice_hide" + k).css("display", "none")
+                        // }
+                        // if(data[k].option4 == 1 && data[k].option5 == 0){ //审核关，支付开
+                        //     $(".verify" + k).css("display", "none")
+                        //     console.log(data[k])
+                        //     if(data[k].status==2){
+                        //        $(".status" + k).html('已支付')
+                        //     }else{
+                        //        $(".hide" + k).css("display", "none")
+                        //     }
+                        // }
+                        // if(data[k].option4 == 0 && data[k].option5 == 0){ //审核关，支付关
+                        //     $(".hide" + k).css("display", "none")
+                        // }
+                        // if(data[k].option4 == 0 && data[k].option5 == 1){//审核开，支付关
+                        //     $(".status" + k).css("display", "none")
+                        //     if(data[k].verify == 0){
+                        //         $(".verify" + k).html('审核中')
+                        //         $(".tickets" + k).css("display", "none")
+                        //         $(".main_list_one" + k).removeClass("main_list_d")
+                        //     }
+                        //     if(data[k].verify == 1){
+                        //         $(".verify" + k).html('已通过')
+                        //     }
+                        //     if(data[k].verify == 2){
+                        //         $(".verify" + k).html('审核拒绝')
+                        //         $(".tickets" + k).css("display", "none")
+                        //         $(".main_list_one" + k).removeClass("main_list_d")
+                        //     }
+                        // }
+                        // if(data[k].option4 == 1 && data[k].option5 == 1){  //审核开，支付开
+                        //     if(data[k].status==2){ //支付
+                        //         if(data[k].verify == 0){
+                        //             $(".verify" + k).html('审核中')
+                        //             $(".tickets" + k).css("display", "none")
+                        //             $(".main_list_one" + k).removeClass("main_list_d")
+                        //         }
+                        //         if(data[k].verify == 1){
+                        //             $(".verify" + k).html('已通过')
+                        //         }
+                        //         if(data[k].verify == 2){
+                        //             $(".verify" + k).html('审核拒绝')
+                        //             $(".tickets" + k).css("display", "none")
+                        //             $(".main_list_one" + k).removeClass("main_list_d")
+                        //         }
+                        //     }else{//未支付
+                        //         $(".hide" + k).css("display", "none")
+                        //     }
+                        // }
                     }
                 }
             }
@@ -160,6 +160,12 @@ function vis_list(wechatId) {
 $("#qiehuan").click(function() {
     cover.style.display = "block"; //显示遮罩层
     modal.style.display = "block"; //显示弹出层
+})
+$(".signUp").click(function() {
+    window.location.href=changeUrl.Catalog + "/common-event/clientWrite.html?id="+clientWriteId
+})
+$(".top_img").click(function() {
+    window.location.href=changeUrl.Catalog + "/common-event/index.html?id="+clientWriteId
 })
 $(".text_phone #qiehuan").html("切换账号")
 var waitTime = 60;

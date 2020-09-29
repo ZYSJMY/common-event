@@ -1,7 +1,7 @@
 body {
-    background-image: -webkit-linear-gradient(to bottom, #f7e8df, #c8edf9);
+    /* background-image: -webkit-linear-gradient(to bottom, #f7e8df, #c8edf9);
     background-image: linear-gradient(to bottom, #f7e8df, #c8edf9);
-    background-repeat: no-repeat;
+    background-repeat: no-repeat; */
 }
 input {
     -webkit-appearance: none;

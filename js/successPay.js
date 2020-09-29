@@ -2,7 +2,21 @@ $(function() {
     var height = $(window).height()
     $(document.body).css("min-height", height)
 })
-
+// var qrcode = new QRCode(document.getElementById("qrcode"), {
+// 	width : 260,
+// 	height : 260
+// });
+// console.log(qrcode)
+// function makeCode () {		
+// 	var elText = document.getElementById("text");
+// 	if (!elText.value) {
+// 		alert("Input a text");
+// 		elText.focus();
+// 		return;
+// 	}
+// 	qrcode.makeCode(elText);
+// }
+// makeCode();
 function getQueryString(name) {
     var reg = new RegExp('(^|&)' + name + '=([^&]*)(&|$)', 'i');
     var r = window.location.search.substr(1).match(reg);
@@ -57,7 +71,7 @@ function loading2() {
         data: {
             "type": type,
             "username": name,
-            "qrImgUrl": 'http://qr.topscan.com/api.php?text='+ID+'&w=260&h=260'
+            "qrImgUrl": 'https://api.qrserver.com/v1/create-qr-code/?size=260x260&data='+ID+''
         },
         url: changeUrl.address + "/activity/get_image_synthesis.do",
         success: function(data) {

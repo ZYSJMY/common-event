@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>新学说-第六届VIS国际学校发展大会</title>
+    <link href="https://www.xinxueshuo.cn/cdn/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/conventionM.css">
+</head>
+
+<body>
+    <div class="container-fluid plpr5 hidenscroll">
+        <div class="row activity-nav mb5">
+            <div class="col-md-12 col-xs-12">
+                <div class="nav-content">
+                    <a href="http://www.xinxueshuo.cn/">
+                        <img src="https://nsi.oss-cn-zhangjiakou.aliyuncs.com/nsi-class/activity/2018HRC/logo.png" alt="" width="120" height="50">
+                    </a>
+                    <p class="toapply">立即报名</p>
+                </div>
+            </div>
+        </div>
+        <div class="row mb5">
+            <div class="col-md-12 col-xs-12">
+                <div class="banner">
+                    <a href="#">
+                        <img style="min-height:200px" src="./images/banner.jpg" alt="">
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="row mb5">
+            <div class="col-md-12 col-xs-12">
+                <div class="banner">
+                    <div class="gridContainer text-center  personal" style="background-color: #215089">
+                        <h5 style="font-size: 16px">我的门票</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+<script src="https://www.xinxueshuo.cn/cdn/js/jquery.min.js"></script>
+<script src="https://www.xinxueshuo.cn/cdn/js/bootstrap.min.js"></script>
+<script src="js/config.js"></script>
+<script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+<script src="js/wexinShare01.js"></script>
+<script>
+    weixinShare('新学说-第六届VIS国际学校发展大会', '时间：2020.11  地点：中国  守望初心，创新聚变', 'http://data.xinxueshuo.cn/upImage/upInstitutionImg/100062/100062-logo.jpg')
+</script>
+<script>
+    function getQueryString(name) {
+        var reg = new RegExp('(^|&)' + name + '=([^&]*)(&|$)', 'i');
+        var r = window.location.search.substr(1).match(reg);
+        if (r != null) {
+            return decodeURI(r[2]);
+        }
+        return null;
+    }
+    var id = (getQueryString("id"));
+    $(".toapply").click(function(){
+       window.location.href=changeUrl.Catalog + "/common-event/clientWrite.html?id="+id
+    })
+    $(".personal").click(function(){
+        window.location.href=changeUrl.Catalog + "/common-event/personal.html?id="+id
+    })
+    if (/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
+
+    } else {
+        window.location.href = "index_MPC.html";
+    }
+</script>

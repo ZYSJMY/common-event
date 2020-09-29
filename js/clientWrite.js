@@ -901,9 +901,17 @@ sub.on("click", function() {
                             if(openPay == 1){
                                 window.location.href = changeUrl.Catalog + "/common-event/purchase.html?name=" + nameval + "&company=" + companyval + "&phone=" + telphoneval + "&event_id=" + event_id + "&type=" + type+ "&signUpId=" + signUpId
                             }else{
-                                // window.location.href = changeUrl.Catalog + "/common-event/personal.html?phone=" + telphoneval
                                 window.location.href = changeUrl.Catalog + "/common-event/success.html"
                             }
+                        }
+                        if(data.code == 500){
+                            $.message({
+                                message: "请求失败！",
+                                type: 'warning',
+                                duration: 2000,
+                                showClose: false,
+                                center: false,
+                            });
                         }
                     }
                 })
