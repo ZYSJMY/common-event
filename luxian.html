@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://www.xinxueshuo.cn/cdn/css/bootstrap.min.css" rel="stylesheet">
+    <title>新学说-第六届VIS国际学校发展大会</title>
+    <style>
+        .container-fluid {
+            margin: 0;
+            padding: 0;
+        }
+        
+        .map-bg {
+            margin: 20px 0px;
+            background-color: rgba(255, 255, 255, .8);
+            margin-bottom: 30px;
+            border-radius: 4px;
+            color: #666;
+            font-size: 16px;
+        }
+        
+        .top_img {
+            position: absolute;
+            margin: 6px 0 0 16px;
+            border-radius: 50%;
+            color: #fff;
+            width: 30px;
+            height: 30px;
+            text-align: center;
+            line-height: 30px;
+            background-color: rgba(0, 0, 0, .5);
+            z-index: 99;
+        }
+        
+        .top_img img {
+            position: relative;
+            width: 20px;
+            height: 18px;
+            left: -2px;
+            top: -1px;
+        }
+        
+        .top {
+            background-color: #fff;
+            width: 100%;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            font-size: 18px;
+            color: #000;
+            /* margin-bottom: 10px; */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="top_img">
+            <img src="./images/fh.svg" alt="">
+        </div>
+        <div class="top">
+            会场平面图
+        </div>
+        <div>
+            <img style="height:auto;width: 100%;" src="./images/luxian.jpg" alt="">
+        </div>
+        <div class="row map-bg">
+            <div class="col-md-12 col-xs-12">
+                <p class="baseInfo"><b>时间：</b>2020/11/21-2020/11/22</p>
+                <p class="baseInfo"><b>地点：</b>北京市丰台区西营街8号院1号楼</p>
+                <p class="baseInfo"><b>酒店：</b>北京新青海喜来登大酒店</p>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="https://www.xinxueshuo.cn/cdn/js/jquery.min.js"></script>
+<script src="https://www.xinxueshuo.cn/cdn/js/bootstrap.min.js"></script>
+<script src="js/config.js"></script>
+<script>
+    $(".top_img").click(function() {
+        window.history.go(-1);
+    })
+</script>
+
+</html>

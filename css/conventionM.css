@@ -1,6 +1,6 @@
 .nav-content {
-    height: 50px;
-    line-height: 50px;
+    height: 60px;
+    line-height: 60px;
 }
 
 .activity-nav {
@@ -26,14 +26,14 @@
 }
 
 .toapply {
-    position: absolute;
+    /* position: absolute;
     right: 15px;
     top: 9px;
     padding: 10px 20px;
     background-color: #FF7283;
     color: #FFF;
     border-radius: 4px;
-    line-height: 1;
+    line-height: 1; */
 }
 
 footer.row {

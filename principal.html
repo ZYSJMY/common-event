@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>新学说-最具影响力校长</title>
+    <link href="https://www.xinxueshuo.cn/cdn/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        html ,body{
+            background-color: #eee;
+        }
+        .container-fluid {
+            margin: 0;
+            padding: 0;
+        }
+        .top {
+            background-color: #fff;
+            width: 100%;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            font-size: 18px;
+            color: #000;
+        }
+        .top_img {
+            position: absolute;
+            margin: 6px 0 0 16px;
+            border-radius: 50%;
+            color: #fff;
+            width: 30px;
+            height: 30px;
+            text-align: center;
+            line-height: 30px;
+            background-color: rgba(0, 0, 0, .5);
+            z-index: 99;
+        }
+        
+        .top_img img {
+            position: relative;
+            width: 20px;
+            height: 18px;
+            left: -2px;
+            top: -1px;
+        }
+        .list{
+           text-align: center;
+           padding: 0 10px;
+           background-color: #fff;
+           margin: 10px;
+           border-radius: 4px;
+        }
+        .list-img{
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin: 10px 0;
+        }
+        .list-p{
+            padding-bottom: 10px;
+            text-align: left;
+            text-indent: 2em;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="top_img">
+            <img src="./images/fh.svg" alt="">
+        </div>
+        <div class="top">
+            最具影响力校长
+        </div>
+        <div class="list-arr">
+
+        </div>
+    </div>
+</body>
+
+</html>
+<script src="https://www.xinxueshuo.cn/cdn/js/jquery.min.js"></script>
+<script src="https://www.xinxueshuo.cn/cdn/js/bootstrap.min.js"></script>
+<script src="js/config.js"></script>
+<script>
+    $(".top_img").click(function() {
+        window.history.go(-1);
+    })
+var list=[{'img':'./images/1周宪明.jpg','introduce':'现任北京市中芯学校执行校董，北京海峡两岸民间交流促进会理事，美国童声合唱团北京理事，中国国际学校校长俱乐部创始会员'},
+         {'img':'./images/2许凌可.jpg','introduce':'2000-2015年，任职全国首批7所外国语学校之一，重庆外国语学校国际部主任，参与中国首批公立学校国际部的运营。2015年9月至今，历任重庆德普外国语学校副校长、常务副校长、校长，直管运营国际高中部，双语初中部以及品牌推广招生部。'},
+         {'img':'./images/3张毅.jpg','introduce':'先后担任香港教育大学校长委任导师、伦敦大学教育学院校友会(香港)执行委员、香港校长专业发展促进会会员、香港校长中心会员等职位。'},
+         {'img':'./images/4刘莉.jpg','introduce':'刘莉，中共党员，中国高级教师职称，西安梁家滩国际学校校长。陕西省政协委员，美国南加州大学罗西尔教育学院全球教育博士，资深中国基础教育实践者。'},
+         {'img':'./images/5程敏.jpg','introduce':'程敏，毕业于复旦大学英语语言文学专业，硕士学位。高级讲师职称，20年国际学校教育教学及升学管理经验，曾任交大附中国际课程中心负责人，上外A-Level副校长 ，IACAC委员会委员，公共英语等级考试考官。曾翻译出版《隐身人》等多部著作。曾荣获2020 BEED AWARDS亚洲明星校长称号。'},
+         {'img':'./images/6范夏夏.jpg','introduce':'范夏夏现任句容碧桂园学校校长，曾任南京市金陵中学本部中英国际班CIE A-Leve项目运营总监，南京市第三高级中学中美班项目运营校长, 浙江省教育厅下属新通国际教育南京公司总经理，美达菲教育集团国际合作部总经理。新西兰奥塔哥大学商业管理硕士，旅居新西兰七年。'},
+         {'img':'./images/7王普.jpg','introduce':'王普现任上海融育学校执行校长，拥有近20年国际教育从业经验，十余年国际学校校长管理经验。他曾任大连、武汉、天津等多所国际学校校长。'},
+         {'img':'./images/8潘璠.jpg','introduce':'潘璠现任墨尔文国际学校亚洲区中方教育总监以及成都墨尔文学校小学创校校长。她早年毕业于华南师范大学，之后在香港获得教育硕士学位及学校领导与管理深造证书，并完成了北京大学国际学校运营与管理研修班课程。她曾在香港弘立书院及北京鼎石学校两所著名的国际化双语学校负责跨学科项目研发、教学和管理工作。'},
+         {'img':'./images/9Paul-Rogers.jpg','introduce':'Paul Rogers，前惠灵顿杭州校区创始总校长，新任嘉善惠立学校（筹建）总校长。拥有英国国家校长职业资格证，投身教育30余年。'},
+         {'img':'./images/10汤健辉.jpg','introduce':'汤健辉，湖州帕丁顿双语学校总校长。江苏省南通市名校长，全国教科研专家型校长、江苏省基础教育先进个人、南通市优秀教育工作者、南通市学科带头人。先后进修于加拿大约克大学教育系、北京大学国际学校校长班。四川省第十三届人大代表、江苏南通市第十四届人大代表。2018 年入选青岛西海岸新区领军人才。'},
+         {'img':'./images/11张桂元.jpg','introduce':'张桂元，现任法拉古特学校天津校区校长。先后毕业于美国阿拉巴马大学教育管理硕士，天津师范大学教育管理学士，天津师范大学中学英语教育专业。拥有11年的公立学校教学和管理工作经验，以及10年的美国和哥伦比亚国际学校的教学和管理工作经验。'},
+         {'img':'./images/12闫潞霞.jpg','introduce':'闫潞霞，加拿大国际教育集团总校长兼学术总监。拥有北京师范大学国学博士学位，并担任香港教育大学等多所知名大学的研究生导师。在国内外知名国际学校任教并担任管理层超过 20 年，对 IB DP/MYP/PYP 中文 A和B、AP、SAT、IGCSE、HSK 等国际课程及考试都积累了较为成熟的经验。'},
+         {'img':'./images/13Michael-Urquhart.jpg','introduce':'Michael Urquhart，现任爱莎天河外籍人员子女学校校长和广州外国语爱莎文华IB国际课程校长。他毕业于新南威尔士大学，获得了历史、英语和政治专业的学士学位，并在该大学获得了教育学的硕士学位。随后他在澳大利亚纽卡斯尔大学完成了学校领导学的硕士学位，并在美国著名的校长培训中心完成了国际学校领导能力培训。他拥有教育学及学校领导学专业硕士学位。'},
+         {'img':'./images/14Andrew Hunter.jpg','introduce':'Andrew Hunter，现任深圳曼彻斯通城堡学校校长。本科毕业于英国曼彻斯特大学，主修英文、宗教学和圣经研究，而后取得教育学研究生证书。自曼彻斯通在深圳落地生根之初（2018年），他便全力参与到了学校的创建中，协助学校顺利开学，并且承担了学校校监与董事会副主席的重任。'},
+         {'img':'./images/15张望兰.jpg','introduce':'张望兰，深圳瑞得福国际学校执行校董，深圳广电集团第一教育栏目深圳改革开放四十周年之“百位校长”受访校长。张望兰，深圳瑞得福国际学校执行校董，深圳广电集团第一教育栏目深圳改革开放四十周年之“百位校长”受访校长。'},
+         {'img':'./images/16Christopher-Moses.jpg','introduce':'Christopher Moses，现为上海宏润博源学校外方校长。普林斯顿大学毕业，早年有普林斯顿大学任教经历，先后在美国顶级精英高中St Pauls School任主任、美国顶级文理学院里德学院（苹果公司创始人乔布斯的学校）担任国际招生主任。具有丰富的寄宿制中学管理、美国大学升学指导经验。'},
+         {'img':'./images/17James-Waldron.jpg','introduce':'James Waldron，上海诺美学校学术校长。教育领导学硕士，拥有英国国家校长专业资格证。1998年开始在亚洲的国际学校担任高级领导，前伊顿国际学校校长。连续14年上海协和教育集团职业发展，先后在协和虹桥、协和集团、协和古北、协和浦东、协和无锡、协和教科担任副校长。'},
+         {'img':'./images/18刘学言.jpg','introduce':'刘学言，现任北京市力迈中美(国际)学校校长。北师大古文学硕士研究生。曾任首都师范大学附中教科研主任，之后创办首师大附属实验学校。'}]
+     for( var i in list ){
+       html = 
+        '<div class="list">'+
+            '<img class="list-img" src="'+list[i].img+'" alt="">'+
+            '<p class="list-p">'+list[i].introduce+'</p>'+
+        '</div> '
+        $('.list-arr').append(html)
+     }   
+</script>

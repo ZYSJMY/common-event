@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>新学说-第六届VIS国际学校发展大会</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="http://at.alicdn.com/t/font_551799_eo58xwv2o4siqkt9.css">
+    <style>
+        body {
+            background-color: #eee;
+        }
+        
+        .container-fluid {
+            padding: 0;
+            margin: 0;
+            overflow: hidden;
+        }
+        
+        .H5img img {
+            width: 100%;
+            height: auto;
+        }
+        
+        .top_img {
+            position: absolute;
+            margin: 6px 0 0 16px;
+            border-radius: 50%;
+            color: #fff;
+            width: 30px;
+            height: 30px;
+            text-align: center;
+            line-height: 30px;
+            background-color: rgba(0, 0, 0, .5);
+            z-index: 99;
+        }
+        
+        .top_img .one {
+            position: relative;
+            width: 20px;
+            height: 18px;
+            left: -2px;
+            top: -1px;
+        }
+        
+        .top {
+            background-color: #fff;
+            width: 100%;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            font-size: 18px;
+            color: #000;
+            /* margin-bottom: 10px; */
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="top_img">
+            <img class="one" src="./images/fh.svg" alt="">
+        </div>
+        <div class="top">
+            会议信息
+        </div>
+        <div class="H5img">
+            <img src="./images/2020vis1.jpg" alt="">
+            <img src="./images/2020vis2.jpg" alt="">
+        </div>
+    </div>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" crossorigin="anonymous "></script>
+<script src="js/config.js"></script>
+<script>
+    $(".top_img").click(function() {
+        window.history.go(-1);
+    })
+</script>
+
+</html>

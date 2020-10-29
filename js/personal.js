@@ -258,7 +258,7 @@ $("#sub").click(function() {
             success: function(data) {
                 console.log(data)
                 if (data.code == 0) {
-                    window.location.href = changeUrl.Catalog + "/common-event/personal.html?phone=" + mobile
+                    window.location.href = changeUrl.Catalog + "/common-event/personal.html?phone=" + mobile +'&id='+clientWriteId
                 } else {
                     $.message({
                         message: data.msg,
